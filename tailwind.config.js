@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       keyframes: {
         background: {
-          '0%': { transform: 'scale(1.3)', opacity: '.1' },
+          '0%': { transform: 'scale(1.2)', opacity: '.1' },
           '100%': { transform: 'scale(1.0)', opacity: '1' },
         },
         title: {
