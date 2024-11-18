@@ -6,117 +6,26 @@
   <link href="./output.css" rel="stylesheet">
 </head>
 <body class="bg-black text-white">
-    <canvas id="sparks" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
-    <div class="h-screen z-1 relative">
-        <div class="flex justify-center items-center h-full">
-            <h1 class="text-6xl tracking-wider">
+    <div class="h-screen">
+        <div class="overflow-hidden">
+            <div class="animate-background bg-[url('./img/wings-of-chaos.png')] h-screen bg-cover bg-center bg-no-repeat"></div>
+        </div>
+        <!-- center -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <h1 class="animate-title text-6xl tracking-wider title-font drop-shadow-2xl">
                 Spark of Chaos
             </h1>
         </div>
+        <!-- bottom -->
+        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2">
+            <p class="text-center">
+                <a href="https://discord.gg/Wx9AvYAJ" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
+                    </svg>
+                </a>
+            </p>
+        </div>
     </div>
-
-<script>
-    // ready function
-    document.addEventListener('DOMContentLoaded', function() {
-        // get canvas element
-        var canvas = document.getElementById('sparks');
-        // set canvas size
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        // get canvas context
-        var ctx = canvas.getContext('2d');
-        // set canvas background color
-        ctx.fillStyle = 'black';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        // set spark count
-        var sparkCount = 1;
-        var starsCount = 500;
-        var stars = [];
-        // set spark array
-        var sparks = [];
-        // set spark class
-        class Spark {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 2;
-                this.speedY = Math.random() * 2;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                this.size -= 0.025;
-                if (this.size < -10) {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2 + 1;
-                    this.speedX = Math.random() * 2;
-                    this.speedY = Math.random() * 2;
-                }
-            }
-            draw() {
-                ctx.fillStyle = 'white';
-                ctx.beginPath();
-                let size = this.size > 0 ? this.size : 0;
-                ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        class Star {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 0.99 + 0.01;
-            }
-            draw() {
-                // Set fillstyle to white with random alpha
-                ctx.fillStyle = 'white';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            // let stars twinkle
-            update() {
-                this.size += Math.random() * 0.01 - 0.005;
-                if (this.size < 0.01) {
-                    this.size = 0.01;
-                }
-                if (this.size > 1) {
-                    this.size = 1;
-                }
-            }
-        }
-
-        // create sparks
-        for (var i = 0; i < sparkCount; i++) {
-            sparks.push(new Spark());
-        }
-
-        for (var i = 0; i < starsCount; i++) {
-            stars.push(new Star());
-        }
-        // update function
-        function update() {
-            for (var i = 0; i < sparks.length; i++) {
-                sparks[i].update();
-                sparks[i].draw();
-            }
-            for (var i = 0; i < stars.length; i++) {
-                stars[i].update();
-                stars[i].draw();
-            }
-        }
-        // loop function
-        function loop() {
-            ctx.fillStyle = 'rgba(0, 0, 0)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            update();
-            requestAnimationFrame(loop);
-        }
-        // start loop
-        loop();
-    });
-</script>
 </body>
 </html>
