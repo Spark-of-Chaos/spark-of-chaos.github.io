@@ -566,8 +566,8 @@ video {
   top: -2.5rem;
 }
 
-.bottom-4 {
-  bottom: 1rem;
+.bottom-12 {
+  bottom: 3rem;
 }
 
 .top-1\/2 {
@@ -595,8 +595,8 @@ video {
   width: 100%;
 }
 
-.max-w-screen-lg {
-  max-width: 1024px;
+.max-w-full {
+  max-width: 100%;
 }
 
 .-translate-x-1\/2 {
@@ -665,6 +665,10 @@ video {
 
 .to-\[\#ff5e62\] {
   --tw-gradient-to: #ff5e62 var(--tw-gradient-to-position);
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .text-center {
