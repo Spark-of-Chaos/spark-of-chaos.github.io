@@ -16,10 +16,18 @@
             We are a small game studio founded by two friends who share a passion for games. As a team, we are dedicated to create immersive experiences that players can enjoy.
         </p>
         <p class="text-center text-sm text-white drop-shadow-sm">
-            hello@sparkofchaos.com
+            <span id="a">hello</span><span id="b">sparkofchaos</span>
         </p>
         
 
     </div>
+
+    <script>
+        /* dom ready event */
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('a').innerHTML += '@';
+            document.getElementById('b').innerHTML += '.com';
+        });
+    </script>
 </body>
 </html>
