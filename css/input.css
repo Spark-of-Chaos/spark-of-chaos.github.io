@@ -10,3 +10,8 @@
 .title-font {
     font-family: 'BlackOpsOne Regular';
 }
+
+body {
+    background: rgb(56,42,4);
+    background: radial-gradient(circle at top left, rgb(28, 22, 1) 0%, rgb(21, 16, 0) 19%, rgb(2, 16, 38) 46%, rgb(2, 14, 36) 69%, rgb(0, 5, 14) 100%); 
+}

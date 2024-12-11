@@ -595,33 +595,14 @@ video {
   justify-content: center;
 }
 
-.bg-gradient-to-br {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-}
-
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
-
-.from-\[\#201702\] {
-  --tw-gradient-from: #201702 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(32 23 2 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .from-\[\#f0ba4c\] {
   --tw-gradient-from: #f0ba4c var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(240 186 76 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-\[\#00102a\] {
-  --tw-gradient-to: rgb(0 16 42 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #00102a var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
-.to-\[\#020e24\] {
-  --tw-gradient-to: #020e24 var(--tw-gradient-to-position);
 }
 
 .to-\[\#f38f55\] {
@@ -631,10 +612,6 @@ video {
 .bg-clip-text {
   -webkit-background-clip: text;
           background-clip: text;
-}
-
-.bg-no-repeat {
-  background-repeat: no-repeat;
 }
 
 .p-4 {
@@ -677,4 +654,9 @@ video {
 
 .title-font {
   font-family: 'BlackOpsOne Regular';
+}
+
+body {
+  background: rgb(56,42,4);
+  background: radial-gradient(circle at top left, rgb(28, 22, 1) 0%, rgb(21, 16, 0) 19%, rgb(2, 16, 38) 46%, rgb(2, 14, 36) 69%, rgb(0, 5, 14) 100%);
 }
