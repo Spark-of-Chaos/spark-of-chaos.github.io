@@ -9,10 +9,16 @@
     <link rel="mask-icon" href="logo.svg" color="#000000">
     <meta name="theme-color" content="#f38f55">
 </head>
-<body>
-    <div class="flex flex-col h-screen">
+<body class="bg-[#1b2838] text-[#f38f55]">
+    <div class="absolute top-0 left-0 w-full -z-10">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-[#1b2838] from- via- via-75% z-20"></div>
+        <video preload="auto" width="1920" height="1080" autoplay="" muted="" loop="" playsinline="" class="w-full h-full relative z-10">
+            <source src="/img/kabonk-hero.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="lg:flex lg:flex-col lg:h-screen">
         <!-- Menu on top -->
-        <nav class="flex justify-center items-center p-4 gap-2 text-white">
+        <nav class="flex justify-center items-center p-4 gap-2 text-white bg-[#1b2838] bg-opacity-50">
             <a href="/">Home</a>
             <a class="font-bold" href="/games/kabonk!.html">Kabonk!</a>
         </nav>

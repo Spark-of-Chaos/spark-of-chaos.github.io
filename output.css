@@ -554,6 +554,34 @@ video {
   display: none;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.-z-10 {
+  z-index: -10;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
+}
+
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -579,6 +607,10 @@ video {
   height: 1.5rem;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -593,6 +625,10 @@ video {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .flex-1 {
@@ -625,14 +661,37 @@ video {
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.bg-\[\#1b2838\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(27 40 56 / var(--tw-bg-opacity, 1));
+}
+
+.bg-opacity-50 {
+  --tw-bg-opacity: 0.5;
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.from-\[\#1b2838\] {
+  --tw-gradient-from: #1b2838 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(27 40 56 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .from-\[\#f0ba4c\] {
   --tw-gradient-from: #f0ba4c var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(240 186 76 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-75\% {
+  --tw-gradient-via-position: 75%;
 }
 
 .to-\[\#f38f55\] {
@@ -659,6 +718,11 @@ video {
 
 .font-bold {
   font-weight: 700;
+}
+
+.text-\[\#f38f55\] {
+  --tw-text-opacity: 1;
+  color: rgb(243 143 85 / var(--tw-text-opacity, 1));
 }
 
 .text-transparent {
@@ -690,7 +754,21 @@ video {
   font-family: 'BlackOpsOne Regular';
 }
 
-body {
+.homepage {
   background: rgb(56,42,4);
   background: radial-gradient(circle at top left, rgb(28, 22, 1) 0%, rgb(21, 16, 0) 19%, rgb(2, 16, 38) 46%, rgb(2, 14, 36) 69%, rgb(0, 5, 14) 100%);
+}
+
+@media (min-width: 1024px) {
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:h-screen {
+    height: 100vh;
+  }
+
+  .lg\:flex-col {
+    flex-direction: column;
+  }
 }
