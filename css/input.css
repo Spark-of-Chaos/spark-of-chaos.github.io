@@ -12,6 +12,11 @@
 }
 
 .homepage {
-    background: rgb(56,42,4);
-    background: radial-gradient(circle at top left, rgb(28, 22, 1) 0%, rgb(21, 16, 0) 19%, rgb(2, 16, 38) 46%, rgb(2, 14, 36) 69%, rgb(0, 5, 14) 100%); 
+    background: #0f4170;
+    background: linear-gradient(to right bottom, #f8c252, #c6c658, #98c46c, #6fbe84, #4fb599, #33a89f, #1f9aa2, #208ca0, #007997, #00668c, #00547f, #0f4170);
+}
+
+.kabonk {
+    background: #1b1d40;
+    background-image: linear-gradient(to bottom, #731a64, #5a2060, #422258, #2d204d, #1b1d40);
 }
