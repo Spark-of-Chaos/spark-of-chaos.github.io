@@ -9,35 +9,206 @@
     <link rel="mask-icon" href="logo.svg" color="#000000">
     <meta name="theme-color" content="#ff00ff">
 </head>
-<body class="kabonk min-h-screen">
-    <nav class="flex justify-center items-center p-4 gap-2 text-white bg-white/20 backdrop-blur-md rounded-xl shadow-lg mx-4 mt-4">
+<body class="kabonk min-h-screen bg-black">
+    <nav class="fixed z-10 w-full top-0 left-0 flex justify-center items-center p-4 gap-2 text-white bg-white/20 backdrop-blur-md shadow-lg">
         <a class="px-3 py-2 rounded hover:bg-orange-200/80 transition-colors text-white" href="/">Home</a>
         <a class="font-bold px-3 py-2 rounded hover:bg-orange-200/80 bg-orange-400/90 text-black transition-colors" href="/games/kabonk!.html">Kabonk!</a>
     </nav>
-    <div class="flex flex-col items-center w-full my-8">
-        <div class="aspect-w-16 aspect-h-9 w-full max-w-4xl">
-            <video preload="auto" autoplay muted loop playsinline class="w-full h-full object-cover rounded-xl shadow-lg">
+
+    <div class="w-full flex justify-center mt-[72px]">
+        <div class="relative w-full md:min-h-96 overflow-hidden shadow-lg">
+            <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
                 <source src="/img/kabonk-hero.mp4" type="video/mp4">
             </video>
+            <div class="relative flex justify-center items-center md:min-h-96 h-64">
+                <img src="/img/kabonk-game-logo.png" alt="Kabonk! game" class="z-10 w-64 h-auto drop-shadow-xl" />
+            </div>
+            <div class="absolute inset-0 bg-black/40"></div>
         </div>
-        <div class="w-full max-w-4xl text-center">
-            <img class="inline" src="/img/kabonk-game-logo.png" alt="Kabonk! game" />
-            <p class="text-center text-white drop-shadow-sm">
+    </div>
+
+    <div class="w-full flex justify-center mt-8">
+        <div class="max-w-3xl w-full flex flex-col items-center">
+            <h1 class="text-center text-2xl md:text-4xl font-extralight text-white mb-4 font-sans">
                 Step into neon-lit arcades and break, blast, and push your way through bricks and obstacles in this nostalgic brick-breaking classic. Use physics, trick-shots, and power-ups in your advance to beat challenging levels and rack up high scores.
-            </p>
-            <div class="mt-4 text-white flex items-center justify-center gap-4">
-                <a href="https://store.steampowered.com/app/3628790" class="flex gap-1" target="_blank" rel="noopener noreferrer">
-                    <svg class="w-6 h-6" viewBox="0 0 256 259" fill="currentColor" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M127.779 0C60.42 0 5.24 52.412 0 119.014l68.724 28.674a35.812 35.812 0 0 1 20.426-6.366c.682 0 1.356.019 2.02.056l30.566-44.71v-.626c0-26.903 21.69-48.796 48.353-48.796 26.662 0 48.352 21.893 48.352 48.796 0 26.902-21.69 48.804-48.352 48.804-.37 0-.73-.009-1.098-.018l-43.593 31.377c.028.582.046 1.163.046 1.735 0 20.204-16.283 36.636-36.294 36.636-17.566 0-32.263-12.658-35.584-29.412L4.41 164.654c15.223 54.313 64.673 94.132 123.369 94.132 70.818 0 128.221-57.938 128.221-129.393C256 57.93 198.597 0 127.779 0zM80.352 196.332l-15.749-6.568c2.787 5.867 7.621 10.775 14.033 13.47 13.857 5.83 29.836-.803 35.612-14.799a27.555 27.555 0 0 0 .046-21.035c-2.768-6.79-7.999-12.086-14.706-14.909-6.67-2.795-13.811-2.694-20.085-.304l16.275 6.79c10.222 4.3 15.056 16.145 10.794 26.46-4.253 10.314-15.998 15.195-26.22 10.895zm121.957-100.29c0-17.925-14.457-32.52-32.217-32.52-17.769 0-32.226 14.595-32.226 32.52 0 17.926 14.457 32.512 32.226 32.512 17.76 0 32.217-14.586 32.217-32.512zm-56.37-.055c0-13.488 10.84-24.42 24.2-24.42 13.368 0 24.208 10.932 24.208 24.42 0 13.488-10.84 24.421-24.209 24.421-13.359 0-24.2-10.933-24.2-24.42z"/></svg>
-                    Wishlist now!
-                </a>
-                <a href="https://store.steampowered.com/app/3699440/Kabonk_Demo?snr=1_7_15__13" class="flex gap-1" target="_blank" rel="noopener noreferrer">
-                    <svg class="w-6 h-6" viewBox="0 0 256 259" fill="currentColor" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M127.779 0C60.42 0 5.24 52.412 0 119.014l68.724 28.674a35.812 35.812 0 0 1 20.426-6.366c.682 0 1.356.019 2.02.056l30.566-44.71v-.626c0-26.903 21.69-48.796 48.353-48.796 26.662 0 48.352 21.893 48.352 48.796 0 26.902-21.69 48.804-48.352 48.804-.37 0-.73-.009-1.098-.018l-43.593 31.377c.028.582.046 1.163.046 1.735 0 20.204-16.283 36.636-36.294 36.636-17.566 0-32.263-12.658-35.584-29.412L4.41 164.654c15.223 54.313 64.673 94.132 123.369 94.132 70.818 0 128.221-57.938 128.221-129.393C256 57.93 198.597 0 127.779 0zM80.352 196.332l-15.749-6.568c2.787 5.867 7.621 10.775 14.033 13.47 13.857 5.83 29.836-.803 35.612-14.799a27.555 27.555 0 0 0 .046-21.035c-2.768-6.79-7.999-12.086-14.706-14.909-6.67-2.795-13.811-2.694-20.085-.304l16.275 6.79c10.222 4.3 15.056 16.145 10.794 26.46-4.253 10.314-15.998 15.195-26.22 10.895zm121.957-100.29c0-17.925-14.457-32.52-32.217-32.52-17.769 0-32.226 14.595-32.226 32.52 0 17.926 14.457 32.512 32.226 32.512 17.76 0 32.217-14.586 32.217-32.512zm-56.37-.055c0-13.488 10.84-24.42 24.2-24.42 13.368 0 24.208 10.932 24.208 24.42 0 13.488-10.84 24.421-24.209 24.421-13.359 0-24.2-10.933-24.2-24.42z"/></svg>
-                    Play demo
-                </a>
+                <div class="mt-4 text-white flex items-center justify-center gap-4 text-lg">
+                    <a href="https://store.steampowered.com/app/3628790" class="flex gap-1" target="_blank" rel="noopener noreferrer">
+                        <svg class="w-6 h-6" viewBox="0 0 256 259" fill="currentColor" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M127.779 0C60.42 0 5.24 52.412 0 119.014l68.724 28.674a35.812 35.812 0 0 1 20.426-6.366c.682 0 1.356.019 2.02.056l30.566-44.71v-.626c0-26.903 21.69-48.796 48.353-48.796 26.662 0 48.352 21.893 48.352 48.796 0 26.902-21.69 48.804-48.352 48.804-.37 0-.73-.009-1.098-.018l-43.593 31.377c.028.582.046 1.163.046 1.735 0 20.204-16.283 36.636-36.294 36.636-17.566 0-32.263-12.658-35.584-29.412L4.41 164.654c15.223 54.313 64.673 94.132 123.369 94.132 70.818 0 128.221-57.938 128.221-129.393C256 57.93 198.597 0 127.779 0zM80.352 196.332l-15.749-6.568c2.787 5.867 7.621 10.775 14.033 13.47 13.857 5.83 29.836-.803 35.612-14.799a27.555 27.555 0 0 0 .046-21.035c-2.768-6.79-7.999-12.086-14.706-14.909-6.67-2.795-13.811-2.694-20.085-.304l16.275 6.79c10.222 4.3 15.056 16.145 10.794 26.46-4.253 10.314-15.998 15.195-26.22 10.895zm121.957-100.29c0-17.925-14.457-32.52-32.217-32.52-17.769 0-32.226 14.595-32.226 32.52 0 17.926 14.457 32.512 32.226 32.512 17.76 0 32.217-14.586 32.217-32.512zm-56.37-.055c0-13.488 10.84-24.42 24.2-24.42 13.368 0 24.208 10.932 24.208 24.42 0 13.488-10.84 24.421-24.209 24.421-13.359 0-24.2-10.933-24.2-24.42z"/></svg>
+                        Wishlist now!
+                    </a>
+                    <a href="https://store.steampowered.com/app/3699440/Kabonk_Demo?snr=1_7_15__13" class="flex gap-1" target="_blank" rel="noopener noreferrer">
+                        <svg class="w-6 h-6" viewBox="0 0 256 259" fill="currentColor" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M127.779 0C60.42 0 5.24 52.412 0 119.014l68.724 28.674a35.812 35.812 0 0 1 20.426-6.366c.682 0 1.356.019 2.02.056l30.566-44.71v-.626c0-26.903 21.69-48.796 48.353-48.796 26.662 0 48.352 21.893 48.352 48.796 0 26.902-21.69 48.804-48.352 48.804-.37 0-.73-.009-1.098-.018l-43.593 31.377c.028.582.046 1.163.046 1.735 0 20.204-16.283 36.636-36.294 36.636-17.566 0-32.263-12.658-35.584-29.412L4.41 164.654c15.223 54.313 64.673 94.132 123.369 94.132 70.818 0 128.221-57.938 128.221-129.393C256 57.93 198.597 0 127.779 0zM80.352 196.332l-15.749-6.568c2.787 5.867 7.621 10.775 14.033 13.47 13.857 5.83 29.836-.803 35.612-14.799a27.555 27.555 0 0 0 .046-21.035c-2.768-6.79-7.999-12.086-14.706-14.909-6.67-2.795-13.811-2.694-20.085-.304l16.275 6.79c10.222 4.3 15.056 16.145 10.794 26.46-4.253 10.314-15.998 15.195-26.22 10.895zm121.957-100.29c0-17.925-14.457-32.52-32.217-32.52-17.769 0-32.226 14.595-32.226 32.52 0 17.926 14.457 32.512 32.226 32.512 17.76 0 32.217-14.586 32.217-32.512zm-56.37-.055c0-13.488 10.84-24.42 24.2-24.42 13.368 0 24.208 10.932 24.208 24.42 0 13.488-10.84 24.421-24.209 24.421-13.359 0-24.2-10.933-24.2-24.42z"/></svg>
+                        Play demo
+                    </a>
+                </div>
+            </h1>
+        </div>
+    </div>
+
+    <div class="w-full flex justify-center mt-8">
+        <div class="max-w-3xl w-full flex flex-col items-center">
+            <div class="w-full md:grid md:grid-cols-3 gap-4 lightbox-gallery">
+                <img class="rounded-lg shadow-lg border-4 border-[#FF00FF]" src="/img/kabonk!/screenshots/kabonk-breakout-screenshot1.jpg" />
+                <img class="rounded-lg shadow-lg border-4 border-[#FF00FF]" src="/img/kabonk!/screenshots/kabonk-breakout-screenshot2.jpg" />
+                <img class="rounded-lg shadow-lg border-4 border-[#FF00FF]" src="/img/kabonk!/screenshots/kabonk-breakout-screenshot3.jpg" />
+                <!-- <div class="col-span-2"><img src="/img/kabonk!/screenshots/kabonk-breakout-screenshot4.jpg" /></div>
+                <div class=""><img src="/img/kabonk!/screenshots/kabonk-breakout-screenshot5.jpg" /></div>
+                <div class=""><img src="/img/kabonk!/screenshots/kabonk-breakout-screenshot6.jpg" /></div>
+                <div class="col-span-2"><img src="/img/kabonk!/screenshots/kabonk-breakout-screenshot7.jpg" /></div> -->
             </div>
         </div>
-
     </div>
+
+    <div class="w-full flex justify-center mt-12">
+        <div class="max-w-3xl w-full flex flex-col items-center">
+            <h2 class="text-center text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
+                Features
+            </h2>
+        </div>
+    </div>
+    
+    <div class="w-full flex justify-center mt-8">
+        <div class="max-w-3xl w-full flex flex-col gap-8 items-center">
+            <div class="flex flex-col md:flex-row items-center w-full gap-6">
+                <div class="text-white w-1/3">
+                    <h2 class="text-xl font-bold mb-2">Physics based controls</h2>
+                    <p class="text-base font-light">Use physics based controls and create trick-shots to beat challenging levels.</p>
+                </div>
+                <video autoplay loop muted playsinline src="/img/kabonk!/features/physics-based-trick-shots.webm" alt="Physic based" class="w-2/3 object-cover rounded-xl shadow-lg"></video>
+            </div>
+            <div class="flex flex-col md:flex-row items-center w-full gap-6">
+                <video autoplay loop muted playsinline src="/img/kabonk!/features/kabonk-game-powerup.webm" alt="Power-Ups" class="w-2/3 object-cover rounded-xl shadow-lg"></video>
+                <div class="text-white w-1/3">
+                    <h2 class="text-xl font-bold mb-2">Unique power-ups</h2>
+                    <p class="text-base font-light">Unlock and use a variety of power-ups to gain the edge and overcome challenging levels.</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center w-full gap-6">
+                <div class="text-white w-1/3">
+                    <h2 class="text-xl font-bold mb-2">Leaderboards</h2>
+                    <p class="text-base font-light">Beat challenging levels and rack up high scores and get a permanent place in game!</p>
+                </div>
+                <video autoplay loop muted playsinline src="/img/kabonk!/features/steam-leaderboards-game-kabonk.webm" alt="Physic based" class="w-2/3 object-cover rounded-xl shadow-lg"></video>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 text-white flex items-center justify-center gap-4 text-lg">
+        <a href="https://store.steampowered.com/app/3628790" class="flex gap-1" target="_blank" rel="noopener noreferrer">
+            <svg class="w-6 h-6" viewBox="0 0 256 259" fill="currentColor" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M127.779 0C60.42 0 5.24 52.412 0 119.014l68.724 28.674a35.812 35.812 0 0 1 20.426-6.366c.682 0 1.356.019 2.02.056l30.566-44.71v-.626c0-26.903 21.69-48.796 48.353-48.796 26.662 0 48.352 21.893 48.352 48.796 0 26.902-21.69 48.804-48.352 48.804-.37 0-.73-.009-1.098-.018l-43.593 31.377c.028.582.046 1.163.046 1.735 0 20.204-16.283 36.636-36.294 36.636-17.566 0-32.263-12.658-35.584-29.412L4.41 164.654c15.223 54.313 64.673 94.132 123.369 94.132 70.818 0 128.221-57.938 128.221-129.393C256 57.93 198.597 0 127.779 0zM80.352 196.332l-15.749-6.568c2.787 5.867 7.621 10.775 14.033 13.47 13.857 5.83 29.836-.803 35.612-14.799a27.555 27.555 0 0 0 .046-21.035c-2.768-6.79-7.999-12.086-14.706-14.909-6.67-2.795-13.811-2.694-20.085-.304l16.275 6.79c10.222 4.3 15.056 16.145 10.794 26.46-4.253 10.314-15.998 15.195-26.22 10.895zm121.957-100.29c0-17.925-14.457-32.52-32.217-32.52-17.769 0-32.226 14.595-32.226 32.52 0 17.926 14.457 32.512 32.226 32.512 17.76 0 32.217-14.586 32.217-32.512zm-56.37-.055c0-13.488 10.84-24.42 24.2-24.42 13.368 0 24.208 10.932 24.208 24.42 0 13.488-10.84 24.421-24.209 24.421-13.359 0-24.2-10.933-24.2-24.42z"/></svg>
+            Wishlist now!
+        </a>
+        <a href="https://store.steampowered.com/app/3699440/Kabonk_Demo?snr=1_7_15__13" class="flex gap-1" target="_blank" rel="noopener noreferrer">
+            <svg class="w-6 h-6" viewBox="0 0 256 259" fill="currentColor" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M127.779 0C60.42 0 5.24 52.412 0 119.014l68.724 28.674a35.812 35.812 0 0 1 20.426-6.366c.682 0 1.356.019 2.02.056l30.566-44.71v-.626c0-26.903 21.69-48.796 48.353-48.796 26.662 0 48.352 21.893 48.352 48.796 0 26.902-21.69 48.804-48.352 48.804-.37 0-.73-.009-1.098-.018l-43.593 31.377c.028.582.046 1.163.046 1.735 0 20.204-16.283 36.636-36.294 36.636-17.566 0-32.263-12.658-35.584-29.412L4.41 164.654c15.223 54.313 64.673 94.132 123.369 94.132 70.818 0 128.221-57.938 128.221-129.393C256 57.93 198.597 0 127.779 0zM80.352 196.332l-15.749-6.568c2.787 5.867 7.621 10.775 14.033 13.47 13.857 5.83 29.836-.803 35.612-14.799a27.555 27.555 0 0 0 .046-21.035c-2.768-6.79-7.999-12.086-14.706-14.909-6.67-2.795-13.811-2.694-20.085-.304l16.275 6.79c10.222 4.3 15.056 16.145 10.794 26.46-4.253 10.314-15.998 15.195-26.22 10.895zm121.957-100.29c0-17.925-14.457-32.52-32.217-32.52-17.769 0-32.226 14.595-32.226 32.52 0 17.926 14.457 32.512 32.226 32.512 17.76 0 32.217-14.586 32.217-32.512zm-56.37-.055c0-13.488 10.84-24.42 24.2-24.42 13.368 0 24.208 10.932 24.208 24.42 0 13.488-10.84 24.421-24.209 24.421-13.359 0-24.2-10.933-24.2-24.42z"/></svg>
+            Play demo
+        </a>
+    </div>
+
+    <footer class="w-full flex justify-center mt-16 mb-8">
+        <div class="flex gap-6 text-white">
+            <a href="https://x.com/sparkofchaoses" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                <svg class="w-7 h-7 hover:text-[#1da1f2] transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="-480 -466.815 2160 2160"><circle cx="600" cy="613.185" r="1080"/><path fill="#fff" d="M306.615 79.694H144.011L892.476 1150.3h162.604ZM0 0h357.328l309.814 450.883L1055.03 0h105.86L714.15 519.295 1200 1226.37H842.672L515.493 750.215 105.866 1226.37H0l468.485-544.568Z"/></svg>
+            </a>
+            <a href="https://bsky.app/profile/sparkofchaos.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+                <svg class="w-7 h-7 hover:text-[#0066ff] transition-colors" fill="none" viewBox="0 0 64 57" width="32" style="width: 32px; height: 28.5px;"><path fill="#0085ff" d="M13.873 3.805C21.21 9.332 29.103 20.537 32 26.55v15.882c0-.338-.13.044-.41.867-1.512 4.456-7.418 21.847-20.923 7.944-7.111-7.32-3.819-14.64 9.125-16.85-7.405 1.264-15.73-.825-18.014-9.015C1.12 23.022 0 8.51 0 6.55 0-3.268 8.579-.182 13.873 3.805ZM50.127 3.805C42.79 9.332 34.897 20.537 32 26.55v15.882c0-.338.13.044.41.867 1.512 4.456 7.418 21.847 20.923 7.944 7.111-7.32 3.819-14.64-9.125-16.85 7.405 1.264 15.73-.825 18.014-9.015C62.88 23.022 64 8.51 64 6.55c0-9.818-8.578-6.732-13.873-2.745Z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/sparkofchaos.official/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg class="w-7 h-7 hover:text-[#e1306c] transition-colors" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="1000" height="1000" viewBox="0 0 264.5833 264.5833" inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)" sodipodi:docname="Instagram_(2022).svg"><defs><radialGradient id="f" cx="158.429" cy="578.088" r="52.3515" xlink:href="#a" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0 -4.03418 4.28018 0 -2332.2273 942.2356)" fx="158.429" fy="578.088"/><radialGradient inkscape:collect="always" xlink:href="#b" id="g" gradientUnits="userSpaceOnUse" gradientTransform="matrix(.67441 -1.16203 1.51283 .87801 -814.3657 -47.8354)" cx="172.6149" cy="600.6924" fx="172.6149" fy="600.6924" r="65"/><radialGradient inkscape:collect="always" xlink:href="#c" id="h" cx="144.012" cy="51.3367" fx="144.012" fy="51.3367" r="67.081" gradientTransform="matrix(-2.3989 .67549 -.23008 -.81732 464.9957 -26.4035)" gradientUnits="userSpaceOnUse"/><radialGradient inkscape:collect="always" xlink:href="#d" id="e" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-3.10797 .87652 -.6315 -2.23914 1345.6503 1374.1983)" cx="199.7884" cy="628.4379" fx="199.7884" fy="628.4379" r="52.3515"/><linearGradient inkscape:collect="always" id="d"><stop offset="0" stop-color="#ff005f"/><stop offset="1" stop-color="#fc01d8"/></linearGradient><linearGradient id="c"><stop offset="0" stop-color="#780cff"/><stop stop-color="#820bff" offset="1" stop-opacity="0"/></linearGradient><linearGradient inkscape:collect="always" id="b"><stop offset="0" stop-color="#fc0"/><stop offset="1" stop-color="#fc0" stop-opacity="0"/></linearGradient><linearGradient id="a"><stop offset="0" stop-color="#fc0"/><stop offset=".1242" stop-color="#fc0"/><stop offset=".5672" stop-color="#fe4a05"/><stop offset=".6942" stop-color="#ff0f3f"/><stop offset="1" stop-color="#fe0657" stop-opacity="0"/></linearGradient></defs><sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:zoom=".515" inkscape:cx="500" inkscape:cy="500" inkscape:document-units="mm" inkscape:current-layer="layer1" inkscape:document-rotation="0" showgrid="false" inkscape:window-width="1366" inkscape:window-height="705" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1"/><g inkscape:label="Layer 1" inkscape:groupmode="layer"><path d="M204.1503 18.1429c-55.2305 0-71.3834.057-74.5232.3175-11.3342.9424-18.387 2.7275-26.0708 6.554-5.9214 2.9413-10.5915 6.3506-15.2005 11.1298-8.3938 8.7157-13.481 19.4383-15.3226 32.1842-.8953 6.1877-1.1558 7.4496-1.2087 39.0558-.0203 10.5354 0 24.4007 0 42.9984 0 55.2008.061 71.3418.3256 74.4764.9157 11.032 2.6453 17.9728 6.3081 25.565 7 14.5329 20.369 25.4428 36.119 29.5137 5.4535 1.4044 11.4767 2.1779 19.2092 2.5442 3.2762.1425 36.6684.2443 70.081.2443 33.4127 0 66.8253-.0407 70.02-.2035 8.9535-.4214 14.1526-1.1195 19.9011-2.6054 15.8517-4.0912 28.9767-14.8383 36.119-29.5748 3.5916-7.409 5.4128-14.6144 6.237-25.0704.179-2.2796.2543-38.6263.2543-74.924 0-36.304-.0814-72.5835-.2605-74.8632-.8343-10.6249-2.6555-17.7692-6.363-25.3207-3.0421-6.1816-6.42-10.798-11.324-15.518-8.752-8.3616-19.4555-13.4502-32.2101-15.2902-6.18-.8936-7.411-1.1582-39.033-1.2131z" inkscape:connector-curvature="0" fill="url(#e)" transform="translate(-71.8155 -18.1429)"/><path d="M204.1503 18.1429c-55.2305 0-71.3834.057-74.5232.3175-11.3342.9424-18.387 2.7275-26.0708 6.554-5.9214 2.9413-10.5915 6.3506-15.2005 11.1298-8.3938 8.7157-13.481 19.4383-15.3226 32.1842-.8953 6.1877-1.1558 7.4496-1.2087 39.0558-.0203 10.5354 0 24.4007 0 42.9984 0 55.2008.061 71.3418.3256 74.4764.9157 11.032 2.6453 17.9728 6.3081 25.565 7 14.5329 20.369 25.4428 36.119 29.5137 5.4535 1.4044 11.4767 2.1779 19.2092 2.5442 3.2762.1425 36.6684.2443 70.081.2443 33.4127 0 66.8253-.0407 70.02-.2035 8.9535-.4214 14.1526-1.1195 19.9011-2.6054 15.8517-4.0912 28.9767-14.8383 36.119-29.5748 3.5916-7.409 5.4128-14.6144 6.237-25.0704.179-2.2796.2543-38.6263.2543-74.924 0-36.304-.0814-72.5835-.2605-74.8632-.8343-10.6249-2.6555-17.7692-6.363-25.3207-3.0421-6.1816-6.42-10.798-11.324-15.518-8.752-8.3616-19.4555-13.4502-32.2101-15.2902-6.18-.8936-7.411-1.1582-39.033-1.2131z" inkscape:connector-curvature="0" fill="url(#f)" transform="translate(-71.8155 -18.1429)"/><path d="M204.1503 18.1429c-55.2305 0-71.3834.057-74.5232.3175-11.3342.9424-18.387 2.7275-26.0708 6.554-5.9214 2.9413-10.5915 6.3506-15.2005 11.1298-8.3938 8.7157-13.481 19.4383-15.3226 32.1842-.8953 6.1877-1.1558 7.4496-1.2087 39.0558-.0203 10.5354 0 24.4007 0 42.9984 0 55.2008.061 71.3418.3256 74.4764.9157 11.032 2.6453 17.9728 6.3081 25.565 7 14.5329 20.369 25.4428 36.119 29.5137 5.4535 1.4044 11.4767 2.1779 19.2092 2.5442 3.2762.1425 36.6684.2443 70.081.2443 33.4127 0 66.8253-.0407 70.02-.2035 8.9535-.4214 14.1526-1.1195 19.9011-2.6054 15.8517-4.0912 28.9767-14.8383 36.119-29.5748 3.5916-7.409 5.4128-14.6144 6.237-25.0704.179-2.2796.2543-38.6263.2543-74.924 0-36.304-.0814-72.5835-.2605-74.8632-.8343-10.6249-2.6555-17.7692-6.363-25.3207-3.0421-6.1816-6.42-10.798-11.324-15.518-8.752-8.3616-19.4555-13.4502-32.2101-15.2902-6.18-.8936-7.411-1.1582-39.033-1.2131z" inkscape:connector-curvature="0" fill="url(#g)" transform="translate(-71.8155 -18.1429)"/><path d="M204.1503 18.1429c-55.2305 0-71.3834.057-74.5232.3175-11.3342.9424-18.387 2.7275-26.0708 6.554-5.9214 2.9413-10.5915 6.3506-15.2005 11.1298-8.3938 8.7157-13.481 19.4383-15.3226 32.1842-.8953 6.1877-1.1558 7.4496-1.2087 39.0558-.0203 10.5354 0 24.4007 0 42.9984 0 55.2008.061 71.3418.3256 74.4764.9157 11.032 2.6453 17.9728 6.3081 25.565 7 14.5329 20.369 25.4428 36.119 29.5137 5.4535 1.4044 11.4767 2.1779 19.2092 2.5442 3.2762.1425 36.6684.2443 70.081.2443 33.4127 0 66.8253-.0407 70.02-.2035 8.9535-.4214 14.1526-1.1195 19.9011-2.6054 15.8517-4.0912 28.9767-14.8383 36.119-29.5748 3.5916-7.409 5.4128-14.6144 6.237-25.0704.179-2.2796.2543-38.6263.2543-74.924 0-36.304-.0814-72.5835-.2605-74.8632-.8343-10.6249-2.6555-17.7692-6.363-25.3207-3.0421-6.1816-6.42-10.798-11.324-15.518-8.752-8.3616-19.4555-13.4502-32.2101-15.2902-6.18-.8936-7.411-1.1582-39.033-1.2131z" inkscape:connector-curvature="0" fill="url(#h)" transform="translate(-71.8155 -18.1429)"/><path d="M132.3452 33.973c-26.7167 0-30.0696.1167-40.5629.5939-10.4727.4792-17.6212 2.136-23.8762 4.567-6.4701 2.5107-11.9586 5.8693-17.4265 11.3352-5.472 5.464-8.8332 10.9483-11.354 17.4116-2.4389 6.2524-4.099 13.3976-4.5703 23.8585-.4693 10.4854-.5923 13.8379-.5923 40.5348 0 26.697.1189 30.0371.5943 40.5225.4817 10.465 2.1397 17.6082 4.5703 23.8585 2.5147 6.4654 5.8758 11.9497 11.3458 17.4136 5.466 5.468 10.9544 8.8349 17.4204 11.3456 6.259 2.4309 13.4097 4.0877 23.8803 4.567 10.4933.477 13.8441.5938 40.5588.5938 26.7188 0 30.0615-.1167 40.5547-.5939 10.4728-.4792 17.6295-2.136 23.8885-4.567 6.4681-2.5106 11.9484-5.8775 17.4143-11.3455 5.472-5.4639 8.8332-10.9482 11.354-17.4115 2.4183-6.2524 4.0784-13.3976 4.5703-23.8585.4713-10.4854.5943-13.8277.5943-40.5246 0-26.697-.123-30.0473-.5943-40.5328-.4919-10.465-2.152-17.6081-4.5703-23.8584-2.5208-6.4654-5.882-11.9498-11.354-17.4137-5.4721-5.468-10.9442-8.8266-17.4204-11.3353-6.2714-2.4309-13.424-4.0877-23.8967-4.5669-10.4933-.4772-13.8339-.5939-40.5588-.5939zm-8.825 17.7147c2.6193-.0041 5.5418 0 8.825 0 26.2659 0 29.379.0942 39.7513.5652 9.5915.4383 14.7971 2.0397 18.2648 3.3852 4.5908 1.7817 7.8638 3.9116 11.3048 7.3521 3.4431 3.4406 5.5745 6.7173 7.3617 11.3046 1.3465 3.461 2.9512 8.6628 3.3877 18.2472.4714 10.3625.5739 13.4754.5739 39.7095 0 26.234-.1025 29.347-.5739 39.7095-.4386 9.5843-2.0412 14.7861-3.3877 18.2471-1.783 4.5874-3.9186 7.8539-7.3617 11.2923-3.443 3.4406-6.712 5.5704-11.3048 7.3521-3.4636 1.3517-8.6733 2.949-18.2648 3.3873-10.3702.471-13.4854.5734-39.7513.5734-26.2679 0-29.381-.1024-39.7513-.5734-9.5914-.4423-14.797-2.0438-18.2668-3.3893-4.5908-1.7817-7.87-3.9116-11.313-7.3521-3.4431-3.4405-5.5745-6.709-7.3617-11.2985-1.3465-3.461-2.9512-8.6628-3.3877-18.2471-.4714-10.3626-.5657-13.4754-.5657-39.7259 0-26.2504.0943-29.347.5657-39.7095.4386-9.5844 2.0412-14.7861 3.3877-18.2512 1.783-4.5874 3.9186-7.8641 7.3617-11.3046 3.443-3.4406 6.7222-5.5704 11.313-7.3562 3.4677-1.3517 8.6754-2.949 18.2668-3.3894 9.075-.4096 12.5919-.5324 30.9264-.553zm61.3363 16.322c-6.5173 0-11.805 5.2776-11.805 11.792 0 6.5125 5.2877 11.7962 11.805 11.7962 6.5172 0 11.8049-5.2837 11.8049-11.7962 0-6.5124-5.2877-11.796-11.805-11.796zm-52.5113 13.7826c-27.8993 0-50.5191 22.6031-50.5191 50.4817 0 27.8786 22.6198 50.4714 50.5191 50.4714s50.511-22.5928 50.511-50.4714c0-27.8786-22.6137-50.4817-50.513-50.4817zm0 17.7147c18.109 0 32.7914 14.6694 32.7914 32.767 0 18.0956-14.6824 32.767-32.7914 32.767-18.111 0-32.7913-14.6714-32.7913-32.767 0-18.0976 14.6803-32.767 32.7913-32.767z" inkscape:connector-curvature="0" fill="#fff"/></g></svg>
+            </a>
+            <a href="https://mastodon.social/@sparkofchaos" target="_blank" rel="me noopener noreferrer" aria-label="Mastodon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 hover:text-[#6364ff] transition-colors" viewBox="0 0 216.4144 232.00976">
+                    <path fill="#2b90d9" d="M211.80734 139.0875c-3.18125 16.36625-28.4925 34.2775-57.5625 37.74875-15.15875 1.80875-30.08375 3.47125-45.99875 2.74125-26.0275-1.1925-46.565-6.2125-46.565-6.2125 0 2.53375.15625 4.94625.46875 7.2025 3.38375 25.68625 25.47 27.225 46.39125 27.9425 21.11625.7225 39.91875-5.20625 39.91875-5.20625l.8675 19.09s-14.77 7.93125-41.08125 9.39c-14.50875.7975-32.52375-.365-53.50625-5.91875C9.23234 213.82 1.40609 165.31125.20859 116.09125c-.365-14.61375-.14-28.39375-.14-39.91875 0-50.33 32.97625-65.0825 32.97625-65.0825C49.67234 3.45375 78.20359.2425 107.86484 0h.72875c29.66125.2425 58.21125 3.45375 74.8375 11.09 0 0 32.975 14.7525 32.975 65.0825 0 0 .41375 37.13375-4.59875 62.915"/>
+                    <path fill="#fff" d="M177.50984 80.077v60.94125h-24.14375v-59.15c0-12.46875-5.24625-18.7975-15.74-18.7975-11.6025 0-17.4175 7.5075-17.4175 22.3525v32.37625H96.20734V85.42325c0-14.845-5.81625-22.3525-17.41875-22.3525-10.49375 0-15.74 6.32875-15.74 18.7975v59.15H38.90484V80.077c0-12.455 3.17125-22.3525 9.54125-29.675 6.56875-7.3225 15.17125-11.07625 25.85-11.07625 12.355 0 21.71125 4.74875 27.8975 14.2475l6.01375 10.08125 6.015-10.08125c6.185-9.49875 15.54125-14.2475 27.8975-14.2475 10.6775 0 19.28 3.75375 25.85 11.07625 6.36875 7.3225 9.54 17.22 9.54 29.675"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+
+
+    <script>
+        document.querySelectorAll('.lightbox-gallery').forEach(gallery => {
+            const images = Array.from(gallery.querySelectorAll('img'));
+            images.forEach((img, idx) => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', () => {
+                    // Create overlay
+                    const overlay = document.createElement('div');
+                    overlay.style.position = 'fixed';
+                    overlay.style.top = 0;
+                    overlay.style.left = 0;
+                    overlay.style.width = '100vw';
+                    overlay.style.height = '100vh';
+                    overlay.style.background = 'rgba(0,0,0,0.9)';
+                    overlay.style.display = 'flex';
+                    overlay.style.alignItems = 'center';
+                    overlay.style.justifyContent = 'center';
+                    overlay.style.zIndex = 10000;
+
+                    // Create image
+                    const lightboxImg = document.createElement('img');
+                    lightboxImg.src = img.src;
+                    lightboxImg.style.maxWidth = '90vw';
+                    lightboxImg.style.maxHeight = '90vh';
+                    lightboxImg.style.boxShadow = '0 0 32px #000';
+                    lightboxImg.style.borderRadius = '12px';
+
+                    // Navigation
+                    const prevBtn = document.createElement('button');
+                    prevBtn.textContent = '‹';
+                    prevBtn.style.position = 'absolute';
+                    prevBtn.style.left = '32px';
+                    prevBtn.style.fontSize = '2.5rem';
+                    prevBtn.style.color = '#fff';
+                    prevBtn.style.background = 'none';
+                    prevBtn.style.border = 'none';
+                    prevBtn.style.cursor = 'pointer';
+
+                    const nextBtn = document.createElement('button');
+                    nextBtn.textContent = '›';
+                    nextBtn.style.position = 'absolute';
+                    nextBtn.style.right = '32px';
+                    nextBtn.style.fontSize = '2.5rem';
+                    nextBtn.style.color = '#fff';
+                    nextBtn.style.background = 'none';
+                    nextBtn.style.border = 'none';
+                    nextBtn.style.cursor = 'pointer';
+
+                    // Close
+                    overlay.addEventListener('click', e => {
+                        if (e.target === overlay) document.body.removeChild(overlay);
+                    });
+                    document.addEventListener('keydown', function escListener(ev) {
+                        if (ev.key === 'Escape') {
+                            document.body.removeChild(overlay);
+                            document.removeEventListener('keydown', escListener);
+                        }
+                    });
+
+                    // Navigation logic
+                    prevBtn.addEventListener('click', e => {
+                        e.stopPropagation();
+                        let newIdx = (idx - 1 + images.length) % images.length;
+                        lightboxImg.src = images[newIdx].src;
+                        idx = newIdx;
+                    });
+                    nextBtn.addEventListener('click', e => {
+                        e.stopPropagation();
+                        let newIdx = (idx + 1) % images.length;
+                        lightboxImg.src = images[newIdx].src;
+                        idx = newIdx;
+                    });
+
+                    overlay.appendChild(lightboxImg);
+                    if (images.length > 1) {
+                        overlay.appendChild(prevBtn);
+                        overlay.appendChild(nextBtn);
+                    }
+                    document.body.appendChild(overlay);
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
