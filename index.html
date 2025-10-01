@@ -185,8 +185,8 @@ var Engine = Matter.Engine,
     var defaultCategory = 0x0001,
         blueCategory = 0x0002,
         pinkCategory = 0x0004;
-    var colorA = '#ff00ff';
-        colorB = '#eafbfe';
+    var colorA = 'rgba(255,0,255,.2)';
+    var colorB = 'rgba(234,251,254,.2)';
 
     var boxSize = 40;
     var gameWidth = 1280;
@@ -226,27 +226,27 @@ var Engine = Matter.Engine,
     });
 
     // create two boxes and a ground
-    var ballA = Bodies.circle(gameWidth / 1.3, gameHeight / 2, boxSize/1.5, {
+    var ballA = Bodies.circle(gameWidth / 1.3, gameHeight / 2, boxSize/3, {
         frictionAir: 0,
         friction: 0,
         frictionStatic: 0,
         inertia: Infinity,
         restitution: 1,
         render: {
-            fillStyle: colorB
+            fillStyle: '#a3e0fc'
         },
         collisionFilter: {
             mask: defaultCategory | blueCategory
         },
     });
-    var ballB = Bodies.circle(gameWidth / 3, gameHeight / 2, boxSize/1.5, {
+    var ballB = Bodies.circle(gameWidth / 3, gameHeight / 2, boxSize/3, {
         frictionAir: 0,
         friction: 0,
         frictionStatic: 0,
         inertia: Infinity,
         restitution: 1,
         render: {
-            fillStyle: colorA
+            fillStyle: '#ff00ff'
         },
         
         collisionFilter: {
