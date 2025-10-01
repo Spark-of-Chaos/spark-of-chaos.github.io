@@ -260,16 +260,31 @@ var Engine = Matter.Engine,
 
             // Ensure minimum velocity after collision between ballA and ballB
             if (
-                (bodies.includes(ballA) && bodies.includes(ballB))
+                (bodies.includes(ballA))
             ) {
-                [ballA, ballB].forEach(function(ball) {
+                [ballA].forEach(function(ball) {
                     let vx = ball.velocity.x;
                     let vy = ball.velocity.y;
-                    if (Math.abs(vx) < 25) {
-                        vx = 25 * Math.sign(vx || (Math.random() - 25));
+                    if (Math.abs(vx) < 5) {
+                        vx = 5 * Math.sign(vx || (Math.random() - 5));
                     }
-                    if (Math.abs(vy) < 25) {
-                        vy = 25 * Math.sign(vy || (Math.random() - 25));
+                    if (Math.abs(vy) < 5) {
+                        vy = 5 * Math.sign(vy || (Math.random() - 5));
+                    }
+                    Matter.Body.setVelocity(ball, { x: vx, y: vy });
+                });
+            }
+            if (
+                (bodies.includes(ballB))
+            ) {
+                [ballB].forEach(function(ball) {
+                    let vx = ball.velocity.x;
+                    let vy = ball.velocity.y;
+                    if (Math.abs(vx) < 5) {
+                        vx = 5 * Math.sign(vx || (Math.random() - 5));
+                    }
+                    if (Math.abs(vy) < 5) {
+                        vy = 5 * Math.sign(vy || (Math.random() - 5));
                     }
                     Matter.Body.setVelocity(ball, { x: vx, y: vy });
                 });
