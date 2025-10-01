@@ -1114,6 +1114,10 @@ video {
   background-image: linear-gradient(to bottom, #731a64, #5a2060, #422258, #2d204d, #1b1d40);
 }
 
+#game canvas {
+  width: 100%;
+}
+
 @keyframes zoom-in-out {
   0%, 100% {
     transform: scale(1);
@@ -1165,10 +1169,6 @@ video {
 .hover\:text-orange-400:hover {
   --tw-text-opacity: 1;
   color: rgb(251 146 60 / var(--tw-text-opacity, 1));
-}
-
-.hover\:underline:hover {
-  text-decoration-line: underline;
 }
 
 @media (min-width: 640px) {
