@@ -12,7 +12,7 @@
     
     <!-- Additional Styles -->
     @stack('styles')
-    @stack('scripts-header')
+    @stack('scripts-head')
 </head>
 <body class="bg-gray-50 font-sans antialiased">
     <nav class="fixed z-10 w-full top-0 left-0 flex justify-center items-center p-4 text-white bg-white/20 backdrop-blur-md shadow-lg">
@@ -37,7 +37,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white">
+    <footer class="bg-gray-800 text-white" id="footer">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="text-center">
                 <p>&copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}. All rights reserved.</p>

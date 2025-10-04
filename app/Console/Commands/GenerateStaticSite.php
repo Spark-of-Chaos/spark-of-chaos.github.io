@@ -6,6 +6,7 @@ use Backstage\Models\Domain;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
+use voku\helper\HtmlMin;
 
 class GenerateStaticSite extends Command
 {
@@ -97,6 +98,7 @@ class GenerateStaticSite extends Command
                     ->get($page->url);
                 if ($response->successful()) {
                     $content = $response->body();
+                    $content = (new HtmlMin())->minify($content); 
 
                     $content = str_replace($urls, $domainUrls, $content);
                     $parsedUrl = parse_url(config('app.url'));

@@ -17,9 +17,9 @@
     </div>
 
     <!-- Games Section -->
-    <div class="py-20" id="games">
+    <div id="games">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-white text-center mb-16">Our Games</h2>
+            <h2 class="text-4xl font-bold text-white text-center mb-4">Our Games</h2>
             
             @foreach (\Backstage\Models\Content::where('type_slug', 'game')->get() as $game)
                 <div @if ($game->field('background')) style="background-image: url({{ asset($game->field('background')[0]) }})"@endif class="shadow-lg bg-pink-900 bg-blend-soft-light bg-cover bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 mb-12">
@@ -134,15 +134,20 @@
         </div>
     </div>
 
-    <div id="game" class="w-100"></div>
-
+    @push('scripts-head')
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
+    @endpush
+    @push('styles')
+        <style>
+            #footer canvas {
+                width: 100%;
+                margin: 0 auto;
+            }
+        </style>
+    @endpush
     @push('scripts')
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-
-                if (typeof Matter === 'undefined') {
-                    return;
-                }
             // module aliases
             var Engine = Matter.Engine,
                 Render = Matter.Render,
@@ -159,12 +164,12 @@
             var defaultCategory = 0x0001,
                 blueCategory = 0x0002,
                 pinkCategory = 0x0004;
-            var colorA = 'rgba(255,0,255,.2)';
-            var colorB = 'rgba(234,251,254,.2)';
+            var colorA = 'rgba(255,0,255,.8)';
+            var colorB = 'rgba(234,251,254,.8)';
 
-            var boxSize = 40;
-            var gameWidth = 1280;
-            var gameHeight = 200;
+            var boxSize = 20;
+            var gameWidth = 800;
+            var gameHeight = 80;
             // Store all rectangles for easy access
             var rectangles = [];
 
@@ -188,7 +193,7 @@
 
             // create a renderer
             var render = Render.create({
-                element: document.getElementById('game'),
+                element: document.getElementById('footer'),
                 engine: engine,
                 options: {
                     transparent: true,
@@ -300,9 +305,6 @@
             Matter.Body.setVelocity(ballA, { x: (Math.random() - 0.5) * speed, y: (Math.random() - 0.5) * speed });
             Matter.Body.setVelocity(ballB, { x: (Math.random() - 0.5) * speed, y: (Math.random() - 0.5) * speed });
 
-
-
-
             // Add mouse click event handling
             render.canvas.addEventListener('click', function(event) {
                 var rect = render.canvas.getBoundingClientRect();
@@ -344,8 +346,6 @@
             Runner.run(runner, engine);
         });
     </script>
-
-    <!-- <script src="{{ Vite::asset('resources/js/matter.min.js') }}"></script> -->
     @endpush
 </div>
 @endsection

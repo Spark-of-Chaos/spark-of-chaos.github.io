@@ -13,7 +13,8 @@
         "php": "^8.2",
         "backstage/cms": "^0.5",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "voku/html-min": "^4.5"
     },
     "require-dev": {
         "itsgoingd/clockwork": "^5.2",
