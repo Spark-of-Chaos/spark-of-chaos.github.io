@@ -2,7 +2,7 @@ name: Deploy Static Site
 
 on:
   push:
-    branches: [ source ]
+    branches: [ gh-pages ]
     paths:
       - 'public/static/sparkofchaos.com/**'
 
