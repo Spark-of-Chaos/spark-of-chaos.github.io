@@ -1,0 +1,35 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-SpzT7pyu.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/fonts/BlackOpsOne-Regular.ttf": {
+    "file": "assets/BlackOpsOne-Regular-NJiuZT8Q.ttf",
+    "src": "resources/fonts/BlackOpsOne-Regular.ttf"
+  },
+  "resources/images/logo.svg": {
+    "file": "assets/logo-9XAIN7hm.svg",
+    "src": "resources/images/logo.svg"
+  },
+  "resources/images/team/mathieu.png": {
+    "file": "assets/mathieu-ZImN7FsE.png",
+    "src": "resources/images/team/mathieu.png"
+  },
+  "resources/images/team/rob.png": {
+    "file": "assets/rob-GwwEqNbs.png",
+    "src": "resources/images/team/rob.png"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-Bj43h_rG.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/matter.min.js": {
+    "file": "assets/matter.min-CsJ6CO-B.js",
+    "name": "matter.min",
+    "src": "resources/js/matter.min.js",
+    "isEntry": true
+  }
+}

@@ -1,0 +1,17 @@
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+    build: {
+        chunkSizeWarningLimit: 3072, // 3MB
+        assetsInlineLimit: 0
+    },
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js', 'resources/images/logo.svg', 'resources/images/team/rob.png', 'resources/images/team/mathieu.png', 'resources/js/matter.min.js'],
+            refresh: true,
+        }),
+        tailwindcss(),
+    ],
+});
