@@ -2,7 +2,7 @@ name: Deploy Static Site
 
 on:
   push:
-    branches: [ main ]
+    branches: [ source ]
     paths:
       - 'public/static/sparkofchaos.com/**'
   workflow_dispatch:
