@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Backstage\Models\Domain;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 
 class GenerateStaticSite extends Command
@@ -46,9 +47,20 @@ class GenerateStaticSite extends Command
 
         foreach ($domains as $domain) {
 
-
             $this->info('Running npm build...');
             exec('npx vite build --outDir='. $this->option('output') . $domain->name .'/build', $output, $returnVar);
+
+            // Get default filesystem disk
+            $defaultDisk = config('filesystems.default');
+            // Get the root and copy to output dir
+            $root = config("filesystems.disks.{$defaultDisk}.root");
+            $this->info("Copying assets from {$root} to {$this->option('output')}" . $domain->name);
+
+            File::copyDirectory( $root, $this->option('output') . $domain->name);
+            // Remove the .gitignore file if exists
+            if (File::exists($this->option('output') . $domain->name . '/.gitignore')) {
+                File::delete($this->option('output') . $domain->name . '/.gitignore');
+            }
 
             if ($returnVar !== 0) {
                 $this->error('npm build failed.');
