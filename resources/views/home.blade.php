@@ -33,6 +33,9 @@
                                 <p class="mb-2">
                                     {{ $game->field('description') }}
                                 </p>
+                                <p>
+                                    <a href="{{ $game->url }}" class="text-blue-400 hover:underline">Learn more</a>
+                                </p>
                             </div>
                             <div class="md:w-1/2 w-full flex justify-end">
                                 <div class="aspect-w-16 aspect-h-9 w-full max-w-md">
