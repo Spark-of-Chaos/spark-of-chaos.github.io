@@ -98,7 +98,7 @@ class GenerateStaticSite extends Command
                     ->get($page->url);
                 if ($response->successful()) {
                     $content = $response->body();
-                    $content = (new HtmlMin())->minify($content); 
+                    // $content = (new HtmlMin())->minify($content); 
 
                     $content = str_replace($urls, $domainUrls, $content);
                     $parsedUrl = parse_url(config('app.url'));
