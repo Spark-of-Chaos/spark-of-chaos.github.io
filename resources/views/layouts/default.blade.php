@@ -6,6 +6,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta property="og:image" content="{{ Vite::asset('resources/images/games/kabonk!-available-on-steam.png') }}">
+    <link rel="icon" href="{{ Vite::asset('resources/images/logo.svg') }}">
+    <link rel="mask-icon" href="{{ Vite::asset('resources/images/logo.svg') }}" color="#000000">
+    <meta name="theme-color" content="#f38f55">
+    <meta property="og:description" content="We are Spark of Chaos, a game development company located in Nijmegen, The Netherlands. Creators of Kabonk!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sparkofchaos.com" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Spark of Chaos" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:type" content="image/png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@SparkOfChaoses" />
+    <meta name="twitter:site" content="@SparkOfChaoses" />
     
     <title>@yield('title', config('app.name', 'Spark of Chaos'))</title>
     
