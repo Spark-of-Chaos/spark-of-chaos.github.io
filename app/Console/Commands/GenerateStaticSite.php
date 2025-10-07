@@ -46,6 +46,11 @@ class GenerateStaticSite extends Command
             })
             ->unique();
 
+        // order $urls by length descending
+        $urls = $urls->sortByDesc(function ($url) {
+            return strlen($url);
+        })->values();
+
         foreach ($domains as $domain) {
 
             $this->info('Running npm build...');
@@ -100,14 +105,17 @@ class GenerateStaticSite extends Command
                     ->get($page->url);
                 if ($response->successful()) {
                     $content = $response->body();
-                    $content = (new HtmlMin())->minify($content); 
 
-                    $content = str_replace($urls, $domainUrls, $content);
+                    foreach ($urls as $index => $url) {
+                        $content = preg_replace('/href=["\']' . preg_quote($url, '/') . '["\']/', 'href="' . $domainUrls[$index] . '"', $content);
+                    }
                     $parsedUrl = parse_url(config('app.url'));
                     $originalDomain = $parsedUrl['host'] ?? config('app.url');
                     $content = str_replace($originalDomain, $domain->name, $content);
 
                     $path = empty($page->path) ? 'index' : $page->path;
+
+                    $content = (new HtmlMin())->minify($content); 
                     
                     if (!is_dir(dirname($outputDir))) {
                         mkdir(dirname($outputDir), 0755, true);

@@ -24,7 +24,11 @@ class UploadField extends Base
             $input = $input->image();
         }
         if ($field->config['isImage'] ?? false && $field->config['imageEditor'] ?? false) {
-            $input = $input->imageEditor();
+            $input = $input
+                ->imageResizeMode('cover')
+                ->imageCropAspectRatio('16:9')
+                ->imageResizeTargetWidth('1920')
+                ->imageResizeTargetHeight('1080');
         }
         if ($field->config['isImage'] ?? false && $field->config['imageEditor'] ?? false && $field->config['imageEditorAspectRatios'] ?? false) {
             $input = $input->imageEditorAspectRatios(explode(',', $field->config['imageEditorAspectRatios']));

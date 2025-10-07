@@ -22,9 +22,9 @@
                 <div class="flex flex-col md:flex-row {{ $index % 2 == 1 ? 'md:flex-row-reverse' : '' }} items-center gap-8">
                     <div class="md:w-1/2 w-full">
                         @if ($feature['image'][0] ?? null)
-                            <img src="{{ asset($feature['image'][0] ?? '') }}" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                            <img src="{{ asset($feature['image'][0] ?? '') }}" class="retro-screen rounded-lg shadow-lg w-full h-auto object-cover">
                         @elseif ($feature['video'][0] ?? null)
-                            <video autoplay loop muted playsinline src="{{ asset($feature['video'][0] ?? '') }}" class="rounded-lg shadow-lg w-full h-auto object-cover"></video>
+                            <video autoplay loop muted playsinline src="{{ asset($feature['video'][0] ?? '') }}" class="retro-screen rounded-lg shadow-lg w-full h-auto object-cover"></video>
                         @endif
                                             
                     </div>
@@ -46,6 +46,30 @@
         </div>
         
     @endif
+
+    @if ($levels = $content->children()->where('type_slug', 'level')->get())
+        @if ($levels->count())
+            <div class="max-w-6xl mx-auto py-12">
+                <h2 class="text-3xl font-bold mb-6 text-center">Levels</h2>
+                <p class="text-center text-lg mb-8">
+                    Explore a variety of unique Kabonk! breakout levels, each offering its own distinct challenge and style.
+                </p>
+                <div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                        @foreach ($levels as $level)
+                            <div class="rounded-xl p-6 flex flex-col items-center bg-black/30">
+                                @if ($level->field('screenshot')[0] ?? null)
+                                    <img src="{{ asset($level->field('screenshot')[0]) }}" alt="{{ $level->field('name') }} image" class="retro-screen rounded-lg shadow-lg w-full h-auto object-cover mb-4">
+                                @endif
+                                <h3 class="text-xl font-semibold mb-2 text-center">{{ $level->field('name') }}</h3>
+                                <div class="prose prose-invert text-center">{!! $level->field('description') !!}</div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endif
+    @endif
 </div>
     @push('scripts-head')
     <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
@@ -55,6 +79,59 @@
             #footer canvas {
                 width: 100%;
                 margin: 0 auto;
+            }
+            .retro-screen {
+                filter: grayscale(.8) contrast(1.2) brightness(1.1);
+                -webkit-box-sizing: content-box;
+                -moz-box-sizing: content-box;
+                box-sizing: content-box;
+                position: relative;
+                margin: 0;
+                border: none;
+                -webkit-border-radius: 50% / 10%;
+                border-radius: 50% / 10%;
+                font: normal 100%/normal Arial, Helvetica, sans-serif;
+                color: white;
+                text-align: center;
+                text-indent: 0.1em;
+                -o-text-overflow: clip;
+                text-overflow: clip;
+                background: #fff;
+                border-top: 3px solid #CDCDCD;
+                border-bottom: 3px solid #CDCDCD;
+                transform: scale(0.9);
+                transition: scale 0.5s, filter 0.5s, box-shadow 0.5s, transform 0.5s, border-radius 0.5s;
+            }
+
+            .retro-screen::before {
+                -webkit-box-sizing: content-box;
+                -moz-box-sizing: content-box;
+                box-sizing: content-box;
+                position: absolute;
+                content: "";
+                top: 10%;
+                right: -5%;
+                bottom: 10%;
+                left: -5%;
+                border-left: 3px solid #CDCDCD;
+                border-right: 3px solid #CDCDCD;
+                -webkit-border-radius: 5% / 50%;
+                border-radius: 5% / 50%;
+                font: normal 100%/normal Arial, Helvetica, sans-serif;
+                color: rgba(0,0,0,1);
+                -o-text-overflow: clip;
+                text-overflow: clip;
+                background: #fff;
+                text-shadow: none;
+
+            }
+            .retro-screen:hover {
+                filter: none;
+                border-radius: 0;
+                border-color: #f0f;
+                box-shadow: 0 4px 24px 0 rgba(255,0,255,0.15);
+                transition: filter 0.5s, box-shadow 0.5s, transform 0.5s, border-radius 0.5s;
+                transform: scale(1);
             }
         </style>
     @endpush
