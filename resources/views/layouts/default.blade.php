@@ -40,10 +40,15 @@
     <footer class="bg-gray-800 text-white" id="footer">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="text-center">
-                <p>&copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}. All rights reserved.</p>
+                Made with <canvas id="fire" style="position: relative; top: -16px;width: 32px; height: 64px; display: inline;"></canvas> by <span class="bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent">Spark of Chaos</span>.
             </div>
         </div>
     </footer>
+
+    <script>
+        // Thanks to Jack Rugile - https://codepen.io/jackrugile/pen/nBNLMQ
+        var c=document.getElementById("fire"),ctx=c.getContext("2d"),cw=c.width=160,ch=c.height=320,parts=[],partCount=150,partsFull=!1,hueRange=1,globalTick=0,rand=function(t,i){return Math.floor(Math.random()*(i-t+1)+t)},Part=function(){this.reset()};Part.prototype.reset=function(){this.startRadius=rand(5,25),this.radius=this.startRadius,this.x=cw/2+(rand(0,6)-3),this.y=250,this.vx=0,this.vy=0,this.hue=rand(globalTick-hueRange,globalTick+hueRange),this.saturation=rand(50,100),this.lightness=rand(20,70),this.startAlpha=rand(1,10)/100,this.alpha=this.startAlpha,this.decayRate=.1,this.startLife=7,this.life=this.startLife,this.lineWidth=rand(1,3)},Part.prototype.update=function(){this.vx+=(rand(0,200)-100)/1500,this.vy-=this.life/50,this.x+=this.vx,this.y+=this.vy,this.alpha=this.startAlpha*(this.life/this.startLife),this.radius=this.startRadius*(this.life/this.startLife),this.life-=this.decayRate,(this.x>cw+this.radius||this.x<-this.radius||this.y>ch+this.radius||this.y<-this.radius||this.life<=this.decayRate)&&this.reset()},Part.prototype.render=function(){ctx.beginPath(),ctx.arc(this.x,this.y,this.radius,0,2*Math.PI,!1),ctx.fillStyle=ctx.strokeStyle="hsla("+this.hue+", "+this.saturation+"%, "+this.lightness+"%, "+this.alpha+")",ctx.lineWidth=this.lineWidth,ctx.fill(),ctx.stroke()};var createParts=function(){partsFull||(parts.length>partCount?partsFull=!0:parts.push(new Part))},updateParts=function(){for(var t=parts.length;t--;)parts[t].update()},renderParts=function(){for(var t=parts.length;t--;)parts[t].render()},clear=function(){ctx.globalCompositeOperation="destination-out",ctx.fillStyle="hsla(0, 0%, 0%, .3)",ctx.fillRect(0,0,cw,ch),ctx.globalCompositeOperation="lighter"},loop=function(){window.requestAnimFrame(loop,c),clear(),createParts(),updateParts(),renderParts(),globalTick++};window.requestAnimFrame=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(t){window.setTimeout(t,1e3/60)},loop();
+    </script>
 
     @stack('scripts')
 </body>
