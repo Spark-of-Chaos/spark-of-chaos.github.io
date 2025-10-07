@@ -9,7 +9,7 @@ export default defineConfig({
     },
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js', 'resources/images/logo.svg', 'resources/images/team/rob.png', 'resources/images/team/mathieu.png', 'resources/js/matter.min.js'],
+            input: ['resources/css/app.css', 'resources/js/app.js', 'resources/images/logo.svg', 'resources/images/team/rob.png', 'resources/images/team/mathieu.png', 'resources/js/matter.min.js', 'resources/images/games/kabonk!-available-on-steam.png'],
             refresh: true,
         }),
         tailwindcss(),
