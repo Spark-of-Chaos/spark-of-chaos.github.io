@@ -67,9 +67,9 @@
         <h2 class="text-3xl font-bold text-center text-white mb-8">Team</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="flex flex-col items-center bg-black/40 rounded-lg p-6 shadow-lg">
-                <img src="{{ Vite::asset('resources/images/team/rob.png') }}" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-orange-300 shadow-md">
+                <img src="{{ Vite::asset('resources/images/team/rob.jpg') }}" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-orange-300 shadow-md">
                 <h3 class="text-xl font-semibold text-white mb-1">Rob</h3>
-                <p class="text-white text-center">Zupje.</p>
+                <p class="text-white text-center">When I’m grown up, I want to be a game developer!</p>
                 <p class="text-white flex items-center mt-2 gap-2">   
                     <a href="https://discord.gg/2RtsJUMprB" class="flex items-center text-white hover:text-orange-400 transition-colors" target="_blank">
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
