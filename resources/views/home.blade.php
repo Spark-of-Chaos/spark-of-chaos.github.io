@@ -8,7 +8,9 @@
     <div class="py-20">
         <div class="w-full max-w-6xl mx-auto">
             <div class="flex flex-col flex-1 justify-center items-center p-4 mt-[72px]">
-                <img id="logo" src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Spark of Chaos logo" class="w-1/2 max-h-80">
+                <canvas id="logo-canvas" class="absolute -translate-y-15 z-1"></canvas>
+                <canvas id="logo-canvas2" class="absolute -translate-y-15 z-3"></canvas>
+                <img id="logo" src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Spark of Chaos logo" class="w-1/2 max-h-80 z-2">
                 <h1 class="text-5xl title-font text-center drop-shadow-2xl my-4 bg-gradient-to-r from-[#f0ba4c] to-[#f38f55] inline-block text-transparent bg-clip-text">
                     Spark of Chaos
                 </h1>
@@ -137,4 +139,147 @@
         </div>
     </div>
 </div>
+
+<script>
+// Canvas setup
+const canvas = document.getElementById('logo-canvas');
+const ctx1 = canvas.getContext('2d');
+canvas.width = 240;
+canvas.height = 420;
+const canvas2 = document.getElementById('logo-canvas2');
+const ctx2 = canvas2.getContext('2d');
+canvas2.width = 240;
+canvas2.height = 420;
+
+// Particle class
+class Particle {
+
+    constructor() {
+        this.reset(true);
+        this.targetSpeedX = 0;
+        this.transitionFrames = 0;
+        this.totalTransitionFrames = 0;
+    }
+
+    reset() {
+        this.didResetX = false;
+        this.y = 50 + Math.random() * (canvas.height - 50);
+        let yRatio = (this.y - 150) / (canvas.height - 150); // 0 = bottom, 1 = top
+        // Add some noise to the ratio to break up the perfect triangle shape
+        yRatio = Math.min(Math.max(yRatio + (Math.random() * 0.4 - 0.2), 0), 1); // Add ±0.2 noise but keep between 0 and 1
+        const baseSpread = 40 + yRatio * 100; // Base spread that scales with height
+        const randomFactor = 0.5 + Math.random(); // Random multiplier between 0.5 and 1.5
+        const spread = baseSpread * randomFactor;
+        this.x = canvas.width / 2 + (Math.random() * spread - spread/2);
+        this.halfWayY = 100 + Math.random() * (250 - 100);
+        this.size = Math.random() * 3 + .1;
+        this.speedY = Math.random() * .3 + .1;
+        this.speedX = Math.random() * .3 - 0.1;
+        this.targetSpeedX = this.speedX;
+        this.life = 5 + Math.random() * (10 - 5);
+        this.color = this.getColor();
+    }
+
+    revertXPos() {
+        // this.speedX = this.speedX * -1;
+    }
+
+    getColor() {
+        // Define the color stops from bottom to top
+        const colorStops = [
+            {r: 15, g: 65, b: 112},    // #0f4170
+            {r: 33, g: 72, b: 70},     // #214846
+            {r: 169, g: 196, b: 100},  // #a9c464
+            {r: 248, g: 50, b: 43},    // #f8322b
+            {r: 242, g: 140, b: 51},   // #f28c33
+            {r: 250, g: 196, b: 83},   // #fac453
+            {r: 244, g: 243, b: 190}   // #f4f3be
+        ];
+        
+        // Calculate position ratio (0 at bottom, 1 at top)
+        const maxY = canvas.height;
+        const ratio = 1 - (this.y / maxY);
+        
+        // Find the color segment
+        const segments = colorStops.length - 1;
+        const segment = Math.min(Math.floor(ratio * segments), segments - 1);
+        const segmentRatio = (ratio * segments) % 1;
+        
+        // Get the two colors to interpolate between
+        const color1 = colorStops[segment];
+        const color2 = colorStops[segment + 1];
+
+        // Interpolate between the two colors
+        const r = Math.floor(color1.r + (color2.r - color1.r) * segmentRatio);
+        const g = Math.floor(color1.g + (color2.g - color1.g) * segmentRatio);
+        const b = Math.floor(color1.b + (color2.b - color1.b) * segmentRatio);
+        
+        return `rgba(${r}, ${g}, ${b}, ${this.life})`;
+    }
+
+    update() {
+        this.y -= this.speedY;
+        
+        // Random direction change
+        if (Math.random() < 0.02 && this.transitionFrames === 0) {
+            this.targetSpeedX = -this.speedX;
+            this.totalTransitionFrames = 10 + Math.floor(Math.random() * 20); // Random frames between 10 and 30
+            this.transitionFrames = this.totalTransitionFrames;
+        }
+        
+        // Interpolate speed if transitioning
+        if (this.transitionFrames > 0) {
+            const progress = (this.totalTransitionFrames - this.transitionFrames) / this.totalTransitionFrames;
+            this.speedX = this.speedX + (this.targetSpeedX - this.speedX) * progress;
+            this.transitionFrames--;
+        }
+        
+        this.x += this.speedX + (Math.random() < 0.1 ? (Math.random() * 0.4 - 0.2) : 0);
+        this.life -= 0.01;
+        this.color = this.getColor();
+        if (this.life < 2 || this.y < 100) {
+            this.size = Math.max(this.size * .99, 0);
+        }
+
+        if (this.didResetX == false && this.y <= this.halfWayY) {
+            this.revertXPos();
+            this.didResetX = true;
+        }
+        
+        if (this.life <= 0) {
+            this.reset();
+        }
+    }
+
+    draw(canvasctx) {
+        canvasctx.beginPath();
+        canvasctx.fillStyle = this.color;
+        canvasctx.arc(this.x, this.y, this.size/2, 0, Math.PI * 2);
+        canvasctx.fill();
+    }
+}
+
+// Create particle array
+const particles = Array.from({ length: 100 }, () => new Particle());
+const particles2 = Array.from({ length: 100 }, () => new Particle());
+
+// Animation loop
+function animate() {
+    ctx1.clearRect(0, 0, canvas.width, canvas.height);
+    ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+    
+    particles.forEach(particle => {
+        particle.update();
+        particle.draw(ctx1);
+    });
+    particles2.forEach(particle => {
+        particle.update();
+        particle.draw(ctx2);
+    });
+    
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
 @endsection
