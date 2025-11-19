@@ -15,7 +15,7 @@ class GenerateStaticSite extends Command
      *
      * @var string
      */
-    protected $signature = 'site:generate {--output=public/static/}';
+    protected $signature = 'site:generate {--output=public/static/} {--optimize-images=true}';
 
     /**
      * The console command description.
@@ -65,6 +65,20 @@ class GenerateStaticSite extends Command
             $this->info("Copying assets from {$root} to {$this->option('output')}" . $domain->name);
 
             File::copyDirectory( $root, $this->option('output') . $domain->name);
+
+            // Optimize images in the output directory
+            if ($this->option('optimize-images')) {
+                $this->info('Optimizing images...');
+                $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+                $files = File::allFiles($this->option('output') . $domain->name);
+                
+                foreach ($files as $file) {
+                    if (in_array(strtolower($file->getExtension()), $imageExtensions)) {
+                        $this->optimizeImage($file->getPathname());
+                    }
+                }
+            }
+
             // Remove the .gitignore file if exists
             if (File::exists($this->option('output') . $domain->name . '/.gitignore')) {
                 File::delete($this->option('output') . $domain->name . '/.gitignore');
@@ -129,5 +143,16 @@ class GenerateStaticSite extends Command
         }
 
         return 0;
+    }
+
+    private function optimizeImage($path)
+    {
+        $image = new \Gumlet\ImageResize($path);
+        if ($image->getSourceWidth() > 1024 || $image->getSourceHeight() > 1024) {
+        $image->resizeToBestFit(1024, 1024);
+            $image->save(filename: $path, quality: 60);
+        } else {
+            $image->save(filename: $path, quality: 60);
+        }
     }
 }
