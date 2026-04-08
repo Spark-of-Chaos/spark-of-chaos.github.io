@@ -49,3 +49,8 @@ ol {
 li:not(:last-child) {
   @apply mb-2;
 }
+
+li p {
+  @apply mb-0;
+  display: inline;
+}
