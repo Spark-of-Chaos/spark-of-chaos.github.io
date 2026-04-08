@@ -9,7 +9,7 @@
     <link rel="icon" href="{{ Vite::asset('resources/images/logo.svg') }}">
     <link rel="mask-icon" href="{{ Vite::asset('resources/images/logo.svg') }}" color="#000000">
     <meta name="theme-color" content="#f38f55">
-    <meta property="og:description" content="We are Spark of Chaos, a game development company located in Nijmegen, The Netherlands. Creators of Kabonk!" />
+    <meta property="og:description" content="We are Spark of Chaos, a game development company located in Nijmegen, The Netherlands. Creators of Kabonk! and Fernweh." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sparkofchaos.com" />
     <meta property="og:locale" content="en_US" />

@@ -12,6 +12,7 @@
     "require": {
         "php": "^8.2",
         "backstage/cms": "^0.5",
+        "casmo/backstage-static-site-generator": "dev-main",
         "gumlet/php-image-resize": "^2.1",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.9",

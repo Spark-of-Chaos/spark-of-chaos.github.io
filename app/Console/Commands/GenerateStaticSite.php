@@ -56,7 +56,6 @@ class GenerateStaticSite extends Command
             $this->info('Running npm build...');
             exec('npm run build');
             File::copyDirectory( './public/build', $this->option('output') . $domain->name .'/build');
-            // vite build --outDir='. $this->option('output') . $domain->name .'/build', $output, $returnVar);
 
             // Get default filesystem disk
             $defaultDisk = config('filesystems.default');
@@ -83,14 +82,6 @@ class GenerateStaticSite extends Command
             if (File::exists($this->option('output') . $domain->name . '/.gitignore')) {
                 File::delete($this->option('output') . $domain->name . '/.gitignore');
             }
-
-            // if ($returnVar !== 0) {
-            //     $this->error('npm build failed.');
-            //     foreach ($output as $line) {
-            //         $this->error($line);
-            //     }
-            //     return 1;
-            // }
 
             $this->info('npm build completed successfully.');
 
@@ -148,6 +139,7 @@ class GenerateStaticSite extends Command
     private function optimizeImage($path)
     {
         $image = new \Gumlet\ImageResize($path);
+        $this->info("Optimizing image: {$path}");
         if ($image->getSourceWidth() > 1024 || $image->getSourceHeight() > 1024) {
         $image->resizeToBestFit(1024, 1024);
             $image->save(filename: $path, quality: 60);

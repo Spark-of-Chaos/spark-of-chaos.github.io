@@ -26,12 +26,14 @@
             @foreach (\Backstage\Models\Content::where('type_slug', 'game')->get() as $game)
                 <div @if ($game->field('background')) style="background-image: url({{ asset($game->field('background')[0]) }})"@endif class="shadow-lg bg-pink-900 bg-blend-soft-light bg-cover bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 mb-12">
                     <div class="mb-8">
+                        @if ($game->field('logo'))
                         <div class="flex justify-center items-center w-full">
-                            <img src="{{ asset($game->field('logo')[0] ?? '') ?? '' }}" alt="{{ $game->field('name') }} Logo" class="w-full max-w-4xl h-full object-contain">
-                        </div>
+                                <img src="{{ asset($game->field('logo')[0] ?? '') ?? '' }}" alt="{{ $game->field('name') }} Logo" class="w-full max-w-4xl h-full object-contain">
+                            </div>
+                        @endif
                         <div class="flex flex-col md:flex-row items-center justify-between bg-black/40 p-6">
-                            <div class="md:w-1/2 w-full text-white md:pr-8 mb-4 md:mb-0">
-                                <h2 class="text-3xl font-bold mb-2">Kabonk!</h2>
+                            <div class="@if (!$game->field('trailer')) md:w-1/2 @else w-full @endif text-white md:pr-8 mb-4 md:mb-0">
+                                <h2 class="text-3xl font-bold mb-2">{{ $game->field('name') }}</h2>
                                 <p class="mb-2">
                                     {{ $game->field('description') }}
                                 </p>
@@ -39,6 +41,7 @@
                                     <a href="{{ $game->url }}" class="text-blue-400 hover:underline">Learn more</a>
                                 </p>
                             </div>
+                            @if ($game->field('trailer'))
                             <div class="md:w-1/2 w-full flex justify-end">
                                 <div class="aspect-w-16 aspect-h-9 w-full max-w-md">
                                     <video class="w-full aspect-video rounded border-2 border-white" poster="{{ asset($game->field('trailer-thumbnail')[0] ?? '') }}" controls="">
@@ -47,11 +50,13 @@
                                     </video>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
 
                     <x-lightbox :images="$game->field('screenshots') ?? []" />
 
+                    @if ($game->field('steam'))
                     <div class="mt-12">
                         <a href="{{ $game->field('steam') }}" target="_blank" class="inline-flex items-center px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
                             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -61,6 +66,7 @@
                         </a>
                     </div>
                 </div>
+                @endif
             @endforeach
         </div>
     </div>

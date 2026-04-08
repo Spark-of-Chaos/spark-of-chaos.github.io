@@ -21,3 +21,19 @@
   background: #0f4170;
   background: linear-gradient(to right bottom, #f8c252, #c6c658, #98c46c, #6fbe84, #4fb599, #33a89f, #1f9aa2, #208ca0, #007997, #00668c, #00547f, #0f4170);
 }
+
+blockquote {
+  @apply border-l-4 border-gray-300 pl-4 mb-4;
+}
+
+h2 {
+  @apply text-4xl font-bold text-white mb-4;
+}
+
+h3 {
+  @apply text-2xl font-bold text-white mb-4;
+}
+
+p:not(:last-child) {
+  @apply mb-4;
+}
