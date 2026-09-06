@@ -2,7 +2,7 @@
 
 Static site for sparkofchaos.com. Plain HTML, CSS and JavaScript. **No build step, no
 dependencies, no framework.** The repository root is the deployed site: what you commit to
-`www` is exactly what ships.
+`main` is exactly what ships.
 
 ## Before you change anything
 
@@ -20,8 +20,8 @@ there is no build step to catch mistakes.
 4. Every `<img>` needs `alt`, `width` and `height`. Every `<video>` needs `preload="none"`
    and a `poster`.
 5. Decorative motion goes behind `@media (prefers-reduced-motion: reduce)`.
-6. Work on `www`. Never touch `gh-pages`, `main` or `static-page` — they are backups of the
-   previous site.
+6. Work on `main`. Never touch `gh-pages`, `main-old` or `static-page` — they are backups of
+   the previous site.
 
 ## Where things live
 
@@ -47,7 +47,7 @@ GitHub Pages path resolution closely enough to catch link and MIME mistakes befo
 
 ## Deploy
 
-Push to `www`. `.github/workflows/deploy.yml` publishes the repository root to GitHub Pages.
+Push to `main`. `.github/workflows/deploy.yml` publishes the repository root to GitHub Pages.
 There is nothing to build.
 
 ## Before committing
