@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Spark of Chaos — site.css
+   Order: fonts → tokens → reset → base → components (appended by later tasks).
+   Never hardcode a colour below the token block.
+   ========================================================================== */
+
+/* --- Fonts ---------------------------------------------------------------- */
+@font-face {
+  font-family: 'Exo 2';
+  src: url('../fonts/exo-2-variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Bruno Ace SC';
+  src: url('../fonts/bruno-ace-sc-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Tokens --------------------------------------------------------------- */
+:root {
+  /* Canvas */
+  --ink-950: #06070c;
+  --ink-900: #0b0e16;
+  --ink-800: #121724;
+  --ink-700: #1b2233;
+  --line: rgba(255, 255, 255, .09);
+  --shade: #000;   /* pure black, for color-mix darkening */
+
+  /* Text */
+  --text: #e9edf6;
+  --text-dim: #98a2b8;
+
+  /* Spark ramp — the original ember particle colours */
+  --spark-1: #0f4170;
+  --spark-2: #214846;
+  --spark-3: #a9c464;
+  --spark-4: #f8322b;
+  --spark-5: #f28c33;
+  --spark-6: #fac453;
+  --spark-7: #f4f3be;
+  --spark-gradient: linear-gradient(135deg,
+    var(--spark-1), var(--spark-2), var(--spark-3), var(--spark-4),
+    var(--spark-5), var(--spark-6), var(--spark-7));
+
+  /* Accent */
+  --accent: #f38f55;
+  --accent-2: #f0ba4c;
+
+  /* Per-game palette defaults — overridden by scope classes below */
+  --game-accent: var(--accent);
+  --game-accent-2: var(--accent-2);
+  --game-bg: var(--ink-900);
+
+  /* Space — 4px base */
+  --space-1: .25rem;  --space-2: .5rem;   --space-3: .75rem;
+  --space-4: 1rem;    --space-5: 1.5rem;  --space-6: 2rem;
+  --space-8: 3rem;    --space-10: 4rem;   --space-12: 6rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 16px;
+
+  /* Elevation */
+  --shadow: 0 2px 12px rgba(0, 0, 0, .4);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, .55);
+  --glow: 0 0 32px color-mix(in srgb, var(--game-accent) 45%, transparent);
+
+  /* Type */
+  --font-display: 'Bruno Ace SC', ui-serif, Georgia, serif;
+  --font-body: 'Exo 2', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --step--1: clamp(.833rem, .79rem + .2vw, .938rem);
+  --step-0:  clamp(1rem, .95rem + .25vw, 1.125rem);
+  --step-1:  clamp(1.25rem, 1.15rem + .5vw, 1.5rem);
+  --step-2:  clamp(1.6rem, 1.4rem + 1vw, 2.25rem);
+  --step-3:  clamp(2rem, 1.6rem + 2vw, 3.25rem);
+  --step-4:  clamp(2.75rem, 2rem + 3.75vw, 5.5rem);
+
+  /* Layout */
+  --measure: 68ch;
+  --container: 72rem;
+  --container-narrow: 52rem;
+
+  /* Motion */
+  --ease: cubic-bezier(.2, .6, .3, 1);
+  --dur: 200ms;
+}
+
+/* Per-game palettes (§5.2) */
+.kabonk  { --game-accent: #ff00ff; --game-accent-2: #a3e0fc; --game-bg: #14030f; }
+.fernweh { --game-accent: #f0a45a; --game-accent-2: #7fb98a; --game-bg: #0b120e; }
+
+/* --- Reset ---------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  min-height: 100svh;
+  background: var(--ink-950);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 300;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+img, video { height: auto; }
+input, button, textarea, select { font: inherit; color: inherit; }
+p, h1, h2, h3, h4 { overflow-wrap: break-word; }
+
+/* --- Base elements -------------------------------------------------------- */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+h1 { font-size: var(--step-3); }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: .2em; }
+a:hover { color: var(--accent-2); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+hr { border: 0; height: 1px; background: var(--line); }
+
+::selection { background: var(--accent); color: var(--ink-950); }
+
+/* --- Layout helpers ------------------------------------------------------- */
+.container { width: min(100% - var(--space-8), var(--container)); margin-inline: auto; }
+.container--narrow { width: min(100% - var(--space-8), var(--container-narrow)); margin-inline: auto; }
+
+.section { padding-block: var(--space-12); }
+.section--alt { background: var(--ink-900); }
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: var(--space-4);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent);
+  color: var(--ink-950);
+  border-radius: var(--radius);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* --- Motion preference ---------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
