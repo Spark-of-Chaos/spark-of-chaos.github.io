@@ -175,9 +175,9 @@ Update teaser, from `updates/index.html`:
 ```html
 <article class="card">
   <div class="card__body">
-    <p class="card__meta"><time datetime="2026-09-06">6 September 2026</time> · <span class="chip">Studio</span></p>
-    <h3><a href="/updates/2026-09-06-a-new-home.html">A new home for Spark of Chaos</a></h3>
-    <p>A rebuilt site with no build step, no dependencies — and room for a devlog.</p>
+    <p class="card__meta"><time datetime="2026-09-06">6 September 2026</time> · <span class="chip">Fernweh</span></p>
+    <h3><a href="/updates/2026-09-06-wander-a-day.html">Wander a day, a first milestone</a></h3>
+    <p>How long should a day, a season and a year take in a camping tycoon? Our first milestone: timing and beats.</p>
   </div>
 </article>
 ```
@@ -420,8 +420,8 @@ One file, one image.
 
 ### 5.3 Publish an update
 
-Five files, in order. Task 9 proved this path end to end with the seed post
-`updates/2026-09-06-a-new-home.html`.
+Five files, in order. Task 9 proved this path end to end with the seed post, since replaced by
+`updates/2026-09-06-wander-a-day.html`.
 
 1. **Create the post** by copying `updates/_template.html` to
    `updates/<YYYY-MM-DD>-<kebab-title>.html`. The template deliberately ships with placeholder
@@ -578,7 +578,7 @@ stylesheet linked, `lang` set. Add any new page's path to the `pages` array:
 node -e "
 const fs=require('fs');
 const pages=['index.html','kabonk.html','fernweh.html','404.html',
-             'updates/index.html','updates/2026-09-06-a-new-home.html'];
+             'updates/index.html','updates/2026-09-06-wander-a-day.html'];
 const seenTitle=new Map(), seenDesc=new Map();
 for (const p of pages) {
   const h=fs.readFileSync(p,'utf8');
