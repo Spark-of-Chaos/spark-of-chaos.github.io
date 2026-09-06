@@ -69,7 +69,7 @@
       this.startRadius = rand(5, 25);
       this.radius = this.startRadius;
       this.x = W / 2 + rand(-3, 3);
-      this.y = 250;
+      this.y = 173; // emitter sits high in the box; embers burn up from here
       this.vx = 0;
       this.vy = 0;
       this.hue = rand(tick - 1, tick + 1); // cycles the spectrum over time
