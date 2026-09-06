@@ -270,7 +270,7 @@ hr { border: 0; height: 1px; background: var(--line); }
 }
 /* Raised out of flow so the flame's base rests on the text rather than
    straddling it; the canvas keeps its 64px slot so the footer height holds. */
-#fire { width: 32px; height: 64px; position: relative; top: -16px; }
+#fire { width: 32px; height: 64px; position: relative; top: -8px; }
 .fire-fallback { font-size: 1.25rem; line-height: 1; }
 [data-js] .fire-fallback { display: none; }
 @media (prefers-reduced-motion: reduce) {
