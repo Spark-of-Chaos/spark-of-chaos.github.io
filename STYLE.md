@@ -424,11 +424,12 @@ Five files, in order. Task 9 proved this path end to end with the seed post
 1. **Create the post** by copying `updates/_template.html` to
    `updates/<YYYY-MM-DD>-<kebab-title>.html`. The template deliberately ships with placeholder
    text marking every field that must change — the four capital letters spelling "to-do"
-   followed by a colon, in the `<title>`, the description, the canonical URL, the OG tags, the
-   `<body>` opening comment (palette scope), the chip, the `<h1>`, the `<time>` element (twice —
-   `datetime` and its visible text), and the body copy. **Every one of those placeholders must
-   be replaced** before the post is real; search the finished file for that four-letter marker
-   to check none remain.
+   followed by a colon, in the `<title>`, the description, the canonical URL, the OG tags
+   (including `og:image` — point it at an image for the post, or leave `og-kabonk.png` as the
+   studio default when the post has no artwork of its own), the `<body>` opening comment
+   (palette scope), the chip, the `<h1>`, the `<time>` element (twice — `datetime` and its
+   visible text), and the body copy. **Every one of those placeholders must be replaced** before
+   the post is real; search the finished file for that four-letter marker to check none remain.
    Also set the `<body>` class if the post belongs to a game: `class="kabonk"` or
    `class="fernweh"`; omit it for studio news, exactly as the comment in the template says.
 2. **Add a card to `updates/index.html`.** Copy the existing `<article class="card">` block from
