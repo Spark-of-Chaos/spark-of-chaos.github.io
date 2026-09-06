@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="191.67 210.53 205.02 374.65">
+  <defs>
+    <linearGradient id="f" x1="324.62" x2="218.84" y1="228.91" y2="427.14" data-name="Naamloos verloop 56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f4f3be"/>
+      <stop offset=".51" stop-color="#fbc554"/>
+      <stop offset=".99" stop-color="#e8b245"/>
+    </linearGradient>
+    <linearGradient id="g" x1="324.71" x2="298.49" y1="236.7" y2="396.26" data-name="Naamloos verloop 88" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fecd63"/>
+      <stop offset=".62" stop-color="#ed6963"/>
+      <stop offset="1" stop-color="#911349"/>
+    </linearGradient>
+    <linearGradient id="h" x1="352.18" x2="277.32" y1="290.35" y2="444.06" data-name="Naamloos verloop 106" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eb5d82"/>
+      <stop offset=".5" stop-color="#b91545"/>
+      <stop offset="1" stop-color="#490e30"/>
+    </linearGradient>
+    <linearGradient id="a" x1="314.2" x2="239.98" y1="326.56" y2="446.56" data-name="Naamloos verloop 61" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#da492e"/>
+      <stop offset="1" stop-color="#371333"/>
+    </linearGradient>
+    <linearGradient id="i" x1="266.92" x2="285.58" y1="429.58" y2="494.91" data-name="Naamloos verloop 61" href="#a"/>
+    <linearGradient id="j" x1="344.52" x2="255.19" y1="286.54" y2="511.87" data-name="Naamloos verloop 69" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9487b"/>
+      <stop offset=".53" stop-color="#f49751"/>
+      <stop offset="1" stop-color="#fac853"/>
+    </linearGradient>
+    <linearGradient id="k" x1="254.38" x2="305.34" y1="513.55" y2="422" data-name="Naamloos verloop 99" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e1391f"/>
+      <stop offset=".25" stop-color="#f28c15"/>
+      <stop offset="1" stop-color="#dc4614"/>
+    </linearGradient>
+    <linearGradient id="c" x1="300.41" x2="272.14" y1="470.46" y2="553.93" data-name="Naamloos verloop 113" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d0f1d"/>
+      <stop offset="1" stop-color="#24504c"/>
+    </linearGradient>
+    <linearGradient id="b" x1="330.45" x2="259.64" y1="420.41" y2="554.34" data-name="Naamloos verloop 74" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8eb55a"/>
+      <stop offset=".14" stop-color="#ece873"/>
+      <stop offset=".38" stop-color="#56ab7c"/>
+      <stop offset="1" stop-color="#0f4170"/>
+    </linearGradient>
+    <linearGradient id="l" x1="332.15" x2="261.33" y1="421.31" y2="555.23" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="m" x1="329.28" x2="258.47" y1="419.79" y2="553.72" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="n" x1="325.78" x2="254.96" y1="417.94" y2="551.86" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="o" x1="326.78" x2="255.97" y1="418.47" y2="552.39" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="p" x1="334.83" x2="264.02" y1="422.72" y2="556.65" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="q" x1="321.26" x2="250.44" y1="415.55" y2="549.47" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="r" x1="328.55" x2="257.74" y1="419.4" y2="553.33" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="s" x1="327.6" x2="256.79" y1="418.9" y2="552.83" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="t" x1="325.33" x2="292.13" y1="417.7" y2="480.49" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="u" x1="291.17" x2="283.17" y1="462.61" y2="477.73" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="v" x1="329.79" x2="258.97" y1="420.06" y2="553.98" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="w" x1="333.25" x2="262.43" y1="421.89" y2="555.81" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="x" x1="333.79" x2="263" y1="422.17" y2="556.04" data-name="Naamloos verloop 74" href="#b"/>
+    <linearGradient id="y" x1="242.04" x2="220.45" y1="447.31" y2="479.13" data-name="Naamloos verloop 61" href="#a"/>
+    <linearGradient id="z" x1="311.09" x2="199.11" y1="314.34" y2="479.42" data-name="Naamloos verloop 84" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ef782c"/>
+      <stop offset="1" stop-color="#f7a93c"/>
+    </linearGradient>
+    <linearGradient id="A" x1="199.54" x2="232.21" y1="471.37" y2="549.08" data-name="Naamloos verloop 276" gradientUnits="userSpaceOnUse">
+      <stop offset=".16" stop-color="#a33738"/>
+      <stop offset=".37" stop-color="#e6551c"/>
+      <stop offset=".67" stop-color="#c1d460"/>
+      <stop offset="1" stop-color="#c6c888"/>
+    </linearGradient>
+    <linearGradient id="C" x1="204.62" x2="378.97" y1="503.47" y2="503.47" data-name="Naamloos verloop 113" href="#c"/>
+    <linearGradient id="D" x1="272" x2="332.4" y1="527.77" y2="527.77" data-name="Naamloos verloop 113" gradientTransform="rotate(-1.99 296.95 461.6)" href="#c"/>
+    <linearGradient id="E" x1="288.49" x2="298.17" y1="500.19" y2="510.11" data-name="Naamloos verloop 257" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#be1622"/>
+      <stop offset="1" stop-color="#361232"/>
+    </linearGradient>
+    <linearGradient id="e" x1="274.52" x2="295.19" y1="561.77" y2="568.74" data-name="Naamloos verloop 15" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1d1d1b"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="H" x1="259.15" x2="376.95" y1="512.68" y2="512.68" data-name="Naamloos verloop 130" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1a556e"/>
+      <stop offset="1" stop-color="#54bcba"/>
+    </linearGradient>
+    <radialGradient id="B" cx="300.03" cy="501.3" r="100.68" data-name="Naamloos verloop 251" fx="300.03" fy="501.3" gradientUnits="userSpaceOnUse">
+      <stop offset=".14" stop-color="#be1622"/>
+      <stop offset=".22" stop-color="#ecb532"/>
+      <stop offset=".35" stop-color="#7db366"/>
+      <stop offset=".45" stop-color="#13395c"/>
+      <stop offset=".78" stop-color="#5a9d6a"/>
+      <stop offset="1" stop-color="#e9e460"/>
+    </radialGradient>
+    <radialGradient id="F" cx="303.21" cy="497.74" r="68.95" data-name="Naamloos verloop 240" fx="303.21" fy="497.74" gradientUnits="userSpaceOnUse">
+      <stop offset=".1" stop-color="#f49a4c"/>
+      <stop offset=".22" stop-color="#e4c347"/>
+      <stop offset=".39" stop-color="#72b36e"/>
+      <stop offset=".57" stop-color="#74b36e"/>
+      <stop offset=".69" stop-color="#7db571"/>
+      <stop offset=".8" stop-color="#8cb976"/>
+      <stop offset=".89" stop-color="#a1be7c"/>
+      <stop offset=".98" stop-color="#bdc585"/>
+      <stop offset="1" stop-color="#c6c888"/>
+    </radialGradient>
+    <filter id="d" width="119.5" height="129.85" x="257.44" y="452.48" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="G" width="119.5" height="129.85" x="257.44" y="452.48" maskUnits="userSpaceOnUse">
+      <g filter="url(#d)">
+        <path fill="url(#e)" d="M257.44 542.04h36.59v40.3h-36.59z"/>
+      </g>
+    </mask>
+  </defs>
+  <path class="draw" fill="url(#f)" d="M233.67 389.11c21.19-12 73.04-42.52 77.63-80.3 4.59-37.78-9.33-36.44-10.52-64.59-1.19-28.15 18.22-33.56 18.22-33.56s-15.56-2.89-28 19.11 4.44 48.89-1.11 71.11c-5.56 22.22-17.78 41.33-51.78 71.11s-44 48.67-46.44 61.78c8.96-19.33 20.81-32.67 42-44.67Z"/>
+  <path class="draw" fill="url(#g)" d="M353.67 324.89c-6-36-28.89-53.11-40.22-73.78-11.33-20.67-2.89-36 5.56-40.44 0 0-19.41 5.41-18.22 33.56.23 5.35.91 9.63 1.84 13.32.95 3.28 2.15 6.8 3.64 10.55.46 1.13.93 2.24 1.38 3.37 23.07 54.23 6.47 80.6-22.27 111.12-28.74 30.52-49.19 61.63-47.11 96 2.07 34.37 23.34 52.54 40.07 53.85 0 0-26-8.44-20.22-47.33 5.78-38.89 38-46.22 62.67-70.22s38.89-54 32.89-90Z"/>
+  <path class="draw" fill="url(#h)" d="M351.67 321.89c-4.07-24.41-14.74-35.74-24.45-50.81 7.19 20.48 19.35 49.02 1.34 80.04-24 41.33-56 23.69-81.78 90.98-1.97 8.04-2.94 23.65-1.33 31.91 6 30.89-6.3 32.91 10.43 34.22 0 0-7.77.67-1.99-38.22 5.78-38.89 40.22-34.11 64.89-58.11s38.89-54 32.89-90Z"/>
+  <path class="draw" fill="url(#a)" d="M317.29 330.13c-4.23 10.06-4.99 15.7-18.29 28.76-13.3 13.05-24.3 17.48-42.37 42.96-18.07 25.48-16.54 54.17-16.54 54.17 9.48-25.54 23.15-49.65 45.47-73.35 15.95-16.94 28.41-32.37 31.73-52.53Z"/>
+  <path class="draw" fill="url(#i)" d="M238.26 478.59c-.46-7.68.2-15.2 1.83-22.58s-1.53-28.68 16.54-54.16c18.07-25.48 29.07-29.91 42.37-42.96 13.29-13.05 14.06-18.69 18.28-28.74 3.02-15.92.62-34.54-9.65-58.68 3.32 8.27 6.1 17.3 3.66 37.35-4.59 37.78-56.44 68.3-77.63 80.3-19.96 11.3-31.63 23.8-40.41 41.37 15.65-20.84 36.91-29.18 57.96-30.26-13.11 2.44-70.07 30.37-52.03 97.78 13.69 51.13 72.94 33.2 72.94 33.2l-4.45-1.7c-13.99-6.51-27.78-23.59-29.43-50.92Z"/>
+  <path class="draw" fill="url(#j)" d="M353.67 324.89c-4.07-24.41-15.9-40.13-26.63-54.17 10.32 20.03 23.09 52.93 5.07 83.95-24 41.33-66.28 29.67-92.06 96.96-1.97 8.04-2.3 18.57-1.79 26.96 2.07 34.37 23.34 52.54 40.07 53.85 0 0-26-8.44-20.22-47.33 5.78-38.89 38-46.22 62.67-70.22s38.89-54 32.89-90Z"/>
+  <path class="draw" fill="url(#k)" d="M278.33 532.44s-26-8.44-20.22-47.33c5.78-38.89 38-46.22 62.67-70.22 4.13-4.02 7.96-8.21 11.46-12.56-11.14 9.61-30.84 20.61-43.01 25.23-11.51 4.36-43.03 22.37-47.8 55.05-1.2 8.24.28 16.65 4.01 24.1 8.11 16.2 21.54 24.85 32.89 25.74Z"/>
+  <path class="draw" fill="url(#c)" d="M217.52 512.89c9.57 16.59 25.15 34.79 49.02 41.85 47.33 14 72.89-10.56 83.56-30.33 10.67-19.78 5.11-55.44-21.56-61.44-26.22-5.9-40.89 6.76-41.37 7.15-6.06 8.2-9.09 17.98-6.84 30.16-.74-6.45.24-11.99 6.28-18.16 8.53-8.73 18.89-9.04 27.78-6.81s22.41 12.3 21.81 29.93c-.59 17.63-6.7 32-24.93 39.7-16.93 7.16-38.37 7.26-62.52-5.04 0 0-12.71-2.03-31.24-27Z"/>
+  <path class="draw" fill="url(#b)" d="M315.79 447.15c.5-.29 1-.59 1.51-.88-.51.3-1.02.59-1.51.88Z" opacity=".5"/>
+  <path class="draw" fill="url(#l)" d="M317.72 446.03Z" opacity=".5"/>
+  <path class="draw" fill="url(#m)" d="M313.91 448.26Z" opacity=".5"/>
+  <path class="draw" fill="url(#n)" d="M306.88 452.61c.57-.38 1.15-.75 1.73-1.11-.58.37-1.15.74-1.73 1.11Z" opacity=".5"/>
+  <path class="draw" fill="url(#o)" d="M308.99 451.25c.45-.29.91-.57 1.36-.85-.45.28-.91.57-1.36.85Z" opacity=".5"/>
+  <path class="draw" fill="url(#p)" d="M327.41 440.5Z" opacity=".5"/>
+  <path class="draw" fill="url(#q)" d="M306.87 452.61c-7.51 4.92-14.6 10.64-19.7 17.56 5.1-6.91 12.2-12.64 19.7-17.56Z" opacity=".5"/>
+  <path class="draw" fill="url(#r)" d="M312.11 449.33c.59-.35 1.19-.71 1.8-1.07-.61.36-1.21.72-1.8 1.07Z" opacity=".5"/>
+  <path class="draw" fill="url(#s)" d="M310.35 450.4c.59-.36 1.17-.72 1.76-1.07-.59.35-1.17.71-1.76 1.07Z" opacity=".5"/>
+  <path class="draw" fill="url(#t)" d="M306.87 452.61Z" opacity=".5"/>
+  <path class="draw" fill="url(#u)" d="M287.17 470.17z" opacity=".5"/>
+  <path class="draw" fill="url(#v)" d="M314.84 447.71c.32-.19.63-.37.95-.56-.32.19-.63.37-.95.56Z" opacity=".5"/>
+  <path class="draw" fill="url(#w)" d="M321.62 443.78s.09-.05.14-.08c-.05.03-.09.05-.14.08Z" opacity=".5"/>
+  <path class="draw" fill="url(#x)" d="M204.86 481.8c1.57 13.3 6.48 38.2 17.92 50.87 16.44 18.22 38.67 33.67 78.44 33.22 39.78-.44 70.89-32.11 76.22-57 5.33-24.89-1.51-70.49-49.31-68.8-.24.14-.48.27-.72.41C345.19 430.49 365 420 365 420l.22 9.78s22.67 9.56 30.44 51.11c7.78 41.56-30.71 102.45-90.78 104.22-55.71 1.64-101.27-33.36-108-81-2.18-15.43-2.34-26.8-2.24-27.41l1.96-2.7 9.09-11.69-.83 19.49Z"/>
+  <path class="draw" fill="url(#y)" d="M233.61 433.78s-10.34 34.02-2.61 57.85c-9.74-22.03-8.91-50.91 2.61-57.85Z"/>
+  <path class="draw" fill="url(#z)" d="M206.38 512.05s-5.8-31.45-1.46-48.3c2.47.06 2.36 6.29 3.27-.26 1.27-9.19 1.92-14.15 1.92-14.15s6.82 28.37 20.89 42.3c-16.44-50.15 15.96-71.95 15.96-71.95 2.35-5.85 5.48-11.92 9.67-17.82 18.07-25.48 29.07-29.91 42.37-42.96 13.29-13.05 14.06-18.69 18.28-28.74 3.02-15.92.62-34.54-9.65-58.68 3.32 8.27 6.1 17.3 3.66 37.35-4.59 37.78-56.44 68.3-77.63 80.3-19.96 11.3-31.63 23.8-40.41 41.37 15.65-20.84 36.91-29.18 57.96-30.26-8.79 1.64-38.2 15.74-51.18 44.51-10.62 23.07-5.19 45.82 6.34 67.31Z"/>
+  <path class="draw" fill="url(#A)" d="M206.41 514.92c10.04 23.59 22.54 29.42 38.79 37.83-23.46-18.63-30.95-27.13-35.82-46.35s-4.13-45.01-4.13-45.01-8.99 29.67 1.16 53.53Z"/>
+  <path class="draw" fill="url(#B)" d="M210.86 443.69s-.78 10.88 2.02 23.69c2.16 9.9 7.01 20.96 12.56 29.02 11.22 16.28 20.37 30.63 52.89 36.04 19.56 4.22 30.67-.89 38.89-10.22 8.22-9.33 6.44-30.67-5.56-34.89s-19.33 2.44-19.56 11.11c-.22 8.67 6.44 10.44 6.44 10.44s-6.44-4.22-2.44-10.22 15.78-4.22 16.44 7.78c.36 6.48-6.29 11.93-15.26 11.15-6.8-.59-15.26-6.11-16.71-15.48-1.12-7.24-.55-13.22 6.04-19.97 8.53-8.73 18.89-10.04 27.78-7.81s23.41 13.3 22.81 30.93c-.59 17.63-7.7 33-25.93 40.7-16.93 7.16-42.37 6.26-66.52-6.04-19.62-9.99-38.36-36.02-40.25-64.98 0 0-1.45-16.1 6.33-31.25Z"/>
+  <path class="draw" fill="url(#C)" d="M328.56 464c26.67 6 31.22 40.67 20.56 60.44-10.67 19.78-35.22 43.33-82.56 29.33-47.33-14-61.29-68.06-61.93-77.73 0 19.51 2.5 37.52 18.16 56.62s38.67 34.67 78.44 34.22c39.78-.44 70.89-33.11 76.22-58 5.33-24.89-1.51-70.49-49.31-68.8-5.77 3.24-11.36 6.45-16.02 9.25-9.36 5.62-18.67 12.33-24.95 20.84.13-.11 14.84-12.14 41.39-6.17Z"/>
+  <path class="draw" fill="url(#D)" d="M272.33 539.12c29.58 3.68 46.25-3.99 58.48-28.98 4.3 13.69-15.33 47-58.48 28.98Z"/>
+  <path class="draw" fill="url(#E)" d="M287.61 494.72s3.56 21.21 22.24 17.64c-10.95 10.58-28.06-1.13-22.24-17.64Z"/>
+  <path class="draw" fill="#f9ed72" d="M290.72 487.81c19.63-9.06 29.91-1.2 39.31 11.35-3.86-22.62-29.82-27.51-39.31-11.35Z"/>
+  <path class="draw" fill="url(#F)" d="M312.56 506.44c-.67-12-12.44-13.78-16.44-7.78s2.44 10.22 2.44 10.22-6.67-1.78-6.44-10.44c.22-8.67 7.56-15.33 19.56-11.11s13.78 25.56 5.56 34.89c-8.22 9.33-19.33 14.44-38.89 10.22-32.52-5.41-41.67-19.76-52.89-36.04-.43-.62-.85-1.27-1.28-1.93 6.48 31.68 47.3 50.88 75.81 47.23 20.25-2.59 37.26-22.91 29.43-44.44-7.88-21.65-28.31-18.54-34.68-13.71-7.94 6.02-11.52 20.39-2.07 28.16s20.15 1.85 19.89-5.27Z"/>
+  <g mask="url(#G)">
+    <path fill="url(#H)" d="M316.55 456.02s16.75-8.87 36.49 1.47c21.9 11.46 26.54 37.02 22.7 57.36s-15.4 39.02-42.06 52.05-74.52.73-74.52.73l7.54-5.19s9.13 3.34 24.65 4.24c10 .58 22.57-1.32 36.7-6.6 31.69-11.85 45.19-45.19 38.81-69.33s-20.67-38.28-50.31-34.72Z"/>
+  </g>
+</svg>
