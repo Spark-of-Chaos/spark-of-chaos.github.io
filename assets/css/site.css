@@ -29,6 +29,8 @@
   --ink-700: #1b2233;
   --line: rgba(255, 255, 255, .09);
   --shade: #000;   /* pure black, for color-mix darkening */
+  --crt-glass: #fff;    /* physical white of a CRT screen's glass (Kabonk CRT chrome) */
+  --crt-bezel: #cdcdcd; /* physical grey of a CRT bezel (Kabonk CRT chrome) */
 
   /* Text */
   --text: #e9edf6;
@@ -115,6 +117,7 @@ body {
 }
 
 img, picture, video, canvas, svg { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
 img, video { height: auto; }
 input, button, textarea, select { font: inherit; color: inherit; }
 p, h1, h2, h3, h4 { overflow-wrap: break-word; }
@@ -209,7 +212,7 @@ hr { border: 0; height: 1px; background: var(--line); }
   text-decoration: none;
   transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
 }
-.nav__link:hover, .nav__link[aria-current="page"] {
+.nav__link:hover {
   background: color-mix(in srgb, var(--accent) 18%, transparent);
   color: var(--accent-2);
 }
@@ -409,6 +412,7 @@ hr { border: 0; height: 1px; background: var(--line); }
   text-align: center;
   overflow: hidden;
 }
+.hero > * { position: relative; z-index: 1; }
 .hero__bloom {
   position: absolute;
   inset: 0;
@@ -438,7 +442,6 @@ hr { border: 0; height: 1px; background: var(--line); }
 @keyframes bloom-turn { to { transform: rotate(1turn); } }
 @media (prefers-reduced-motion: reduce) { .hero__bloom { animation: none; } }
 
-.hero > * { position: relative; z-index: 1; }
 .hero__logo { width: min(38vw, 15rem); height: auto; }
 .hero__wordmark {
   font-family: var(--font-display);
@@ -482,24 +485,14 @@ hr { border: 0; height: 1px; background: var(--line); }
 .kabonk .shot {
   position: relative;
   box-sizing: content-box;
-  background: #fff;
-  border-top: 3px solid #cdcdcd;
-  border-bottom: 3px solid #cdcdcd;
+  background: var(--crt-glass);
+  border-top: 3px solid var(--crt-bezel);
+  border-bottom: 3px solid var(--crt-bezel);
   border-radius: 50% / 10%;
   filter: grayscale(.8) contrast(1.2) brightness(1.1);
   transform: scale(.94);
   transition: filter var(--dur) var(--ease), border-radius var(--dur) var(--ease),
               transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-}
-.kabonk .shot::before {
-  content: '';
-  position: absolute;
-  top: 10%; right: -5%; bottom: 10%; left: -5%;
-  background: #fff;
-  border-left: 3px solid #cdcdcd;
-  border-right: 3px solid #cdcdcd;
-  border-radius: 5% / 50%;
-  z-index: -1;
 }
 .kabonk .shot:hover,
 .kabonk a:focus-visible .shot {

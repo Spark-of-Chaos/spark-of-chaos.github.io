@@ -22,6 +22,8 @@ value you need does not exist yet, add a token to `:root`, don't inline a litera
 | `--ink-700` | `#1b2233` | Reserved — declared but not yet consumed by any component; still a legitimate darker-surface step if one is needed |
 | `--line` | `rgba(255, 255, 255, .09)` | Hairline borders: nav bottom border, card border, hr, feature row divider |
 | `--shade` | `#000` | Pure black — used **only** as the dark end of a `color-mix()`, e.g. the lightbox scrim and the Fernweh dusk treeline. Never used as a standalone background so those effects can be tuned by mixing, not by editing a flat colour. |
+| `--crt-glass` | `#fff` | The physical white of a CRT screen's glass — `.kabonk .shot` background |
+| `--crt-bezel` | `#cdcdcd` | The physical grey of a CRT bezel — `.kabonk .shot` top/bottom border |
 
 ### Text
 
@@ -434,8 +436,8 @@ Five files, in order. Task 9 proved this path end to end with the seed post
    `class="fernweh"`; omit it for studio news, exactly as the comment in the template says.
 2. **Add a card to `updates/index.html`.** Copy the existing `<article class="card">` block from
    its post list and fill in the date, `<time datetime>`, chip, link `href`, title and teaser
-   sentence. Paste the new card directly above the
-   `<!-- Newest first. Paste new cards directly above this comment. -->` marker, keeping newest
+   sentence. Paste the new card directly below the
+   `<!-- Newest first. Paste new cards directly below this comment. -->` marker, keeping newest
    posts first.
 3. **Paste the same card into `index.html`'s Latest grid** (`id="latest"` section). This block
    is byte-identical between `updates/index.html` and `index.html` by design — write it once,
@@ -443,8 +445,8 @@ Five files, in order. Task 9 proved this path end to end with the seed post
    if you're already at 3).
 4. **Add an `<item>` to `updates/feed.xml`.** Copy the existing `<item>` block and fill in
    `<title>`, `<link>`, `<guid isPermaLink="true">` (same URL as `<link>`), `<pubDate>` and
-   `<description>`. Paste it directly above the
-   `<!-- Newest first. Paste new items directly above this comment. -->` marker. **`<pubDate>`
+   `<description>`. Paste it directly below the
+   `<!-- Newest first. Paste new items directly below this comment. -->` marker. **`<pubDate>`
    must be RFC-822** — the exact format the existing item uses is
    `Sun, 06 Sep 2026 09:00:00 +0000`: three-letter weekday, day, three-letter month, four-digit
    year, `HH:MM:SS`, then a timezone offset. Get the weekday right for the actual date (e.g.

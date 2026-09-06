@@ -6,6 +6,7 @@
     <description>Notes from the studio on what we are building.</description>
     <language>en-us</language>
     <atom:link href="https://sparkofchaos.com/updates/feed.xml" rel="self" type="application/rss+xml"/>
+    <!-- Newest first. Paste new items directly below this comment. -->
     <item>
       <title>A new home for Spark of Chaos</title>
       <link>https://sparkofchaos.com/updates/2026-09-06-a-new-home.html</link>
@@ -13,6 +14,5 @@
       <pubDate>Sun, 06 Sep 2026 09:00:00 +0000</pubDate>
       <description>A rebuilt site with no build step, no dependencies — and room for a devlog.</description>
     </item>
-    <!-- Newest first. Paste new items directly above this comment. -->
   </channel>
 </rss>

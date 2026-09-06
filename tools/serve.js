@@ -28,7 +28,12 @@ const TYPES = {
 
 function resolve(urlPath) {
   // Strip query/hash, decode, and refuse to escape ROOT.
-  const clean = decodeURIComponent(urlPath.split('?')[0].split('#')[0]);
+  let clean;
+  try {
+    clean = decodeURIComponent(urlPath.split('?')[0].split('#')[0]);
+  } catch (err) {
+    return null; // malformed percent-encoding; fall through to the 404 path
+  }
   const target = path.normalize(path.join(ROOT, clean));
   if (target !== ROOT && !target.startsWith(ROOT + path.sep)) return null;
   if (fs.existsSync(target) && fs.statSync(target).isDirectory()) {
