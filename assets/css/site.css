@@ -547,3 +547,43 @@ hr { border: 0; height: 1px; background: var(--line); }
 .social-row a { display: flex; color: var(--text); transition: color var(--dur) var(--ease); }
 .social-row a:hover { color: var(--accent); }
 .social-row svg { width: 32px; height: 32px; fill: currentColor; }
+
+/* --- Fernweh dusk scene ---------------------------------------------------
+   Stands in for artwork that does not exist yet (spec §11). To replace with a
+   real image later, override exactly one declaration:
+     .fernweh .dusk { background: url('/assets/img/fernweh/hero.jpg') center/cover; }
+   -------------------------------------------------------------------------- */
+.dusk {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    /* campfire glow */
+    radial-gradient(18rem 12rem at 50% 78%, color-mix(in srgb, var(--game-accent) 42%, transparent), transparent 68%),
+    /* treeline */
+    conic-gradient(from 200deg at 12% 100%, transparent 0 38%, color-mix(in srgb, var(--game-accent-2) 26%, var(--shade)) 38% 44%, transparent 44%),
+    conic-gradient(from 200deg at 28% 100%, transparent 0 39%, color-mix(in srgb, var(--game-accent-2) 20%, var(--shade)) 39% 45%, transparent 45%),
+    conic-gradient(from 160deg at 76% 100%, transparent 0 38%, color-mix(in srgb, var(--game-accent-2) 24%, var(--shade)) 38% 44%, transparent 44%),
+    conic-gradient(from 160deg at 90% 100%, transparent 0 39%, color-mix(in srgb, var(--game-accent-2) 18%, var(--shade)) 39% 45%, transparent 45%),
+    /* dusk sky */
+    linear-gradient(to bottom,
+      var(--game-bg) 0%,
+      color-mix(in srgb, var(--game-accent) 14%, var(--game-bg)) 52%,
+      color-mix(in srgb, var(--game-accent) 30%, var(--game-bg)) 78%,
+      var(--game-bg) 100%);
+}
+.dusk::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: .22;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.definition {
+  font-family: var(--font-body);
+  color: var(--text-dim);
+}
+.definition strong { color: var(--game-accent); }
+.definition .ipa { font-style: normal; letter-spacing: .02em; }
