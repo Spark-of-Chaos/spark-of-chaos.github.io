@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spark of Chaos — updates</title>
+    <link>https://sparkofchaos.com/updates/</link>
+    <description>Notes from the studio on what we are building.</description>
+    <language>en-us</language>
+    <atom:link href="https://sparkofchaos.com/updates/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>A new home for Spark of Chaos</title>
+      <link>https://sparkofchaos.com/updates/2026-09-06-a-new-home.html</link>
+      <guid isPermaLink="true">https://sparkofchaos.com/updates/2026-09-06-a-new-home.html</guid>
+      <pubDate>Sun, 06 Sep 2026 09:00:00 +0000</pubDate>
+      <description>A rebuilt site with no build step, no dependencies — and room for a devlog.</description>
+    </item>
+    <!-- Newest first. Paste new items directly above this comment. -->
+  </channel>
+</rss>
