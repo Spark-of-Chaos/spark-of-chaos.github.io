@@ -30,7 +30,7 @@ function resolve(urlPath) {
   // Strip query/hash, decode, and refuse to escape ROOT.
   const clean = decodeURIComponent(urlPath.split('?')[0].split('#')[0]);
   const target = path.normalize(path.join(ROOT, clean));
-  if (!target.startsWith(ROOT)) return null;
+  if (target !== ROOT && !target.startsWith(ROOT + path.sep)) return null;
   if (fs.existsSync(target) && fs.statSync(target).isDirectory()) {
     const index = path.join(target, 'index.html');
     return fs.existsSync(index) ? index : null;
