@@ -33,6 +33,7 @@
   /* Text */
   --text: #e9edf6;
   --text-dim: #98a2b8;
+  --text-bright: #fff;   /* emphasis; brighter than --text */
 
   /* Spark ramp — the original ember particle colours */
   --spark-1: #0f4170;
@@ -382,7 +383,7 @@ hr { border: 0; height: 1px; background: var(--line); }
 .prose h3 { margin-top: var(--space-6); }
 .prose ul, .prose ol { padding-left: var(--space-5); }
 .prose li + li { margin-top: var(--space-2); }
-.prose strong { font-weight: 700; color: #fff; }
+.prose strong { font-weight: 700; color: var(--text-bright); }
 .prose blockquote {
   padding-left: var(--space-5);
   border-left: 3px solid var(--game-accent);
@@ -532,7 +533,7 @@ hr { border: 0; height: 1px; background: var(--line); }
   background: transparent;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  color: #fff;
+  color: var(--text-bright);
   font-size: 1.5rem;
   line-height: 1;
   cursor: pointer;
