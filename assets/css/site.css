@@ -97,6 +97,7 @@
 /* Per-game palettes (§5.2) */
 .kabonk  { --game-accent: #ff00ff; --game-accent-2: #a3e0fc; --game-bg: #14030f; }
 .fernweh { --game-accent: #f0a45a; --game-accent-2: #7fb98a; --game-bg: #0b120e; }
+.dyneria { --game-accent: #ffc334; --game-accent-2: #c2d24b; --game-bg: #0d1226; }
 
 /* --- Reset ---------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -494,6 +495,47 @@ hr { border: 0; height: 1px; background: var(--line); }
   border-color: var(--game-accent);
   box-shadow: var(--glow);
   transform: scale(1);
+}
+
+/* --- Dyneria world art (Dyneria scope only) -------------------------------
+   Dyneria has no logo asset, so the hero is a world screenshot behind the
+   gradient wordmark. The map art is bright olive-green, which the wordmark
+   cannot be read against — hence the scrim, mixed from --shade so it tunes by
+   ratio rather than by editing a flat colour. If a transparent logo PNG turns
+   up later, add an .hero__logo <img> to the hero and lighten the scrim.
+   Screenshots take the standard image radius: Dyneria gets no CRT treatment,
+   that gimmick belongs to Kabonk!.
+   -------------------------------------------------------------------------- */
+.dyneria .hero { background: url('/assets/img/dyneria/hero.jpg') center/cover; }
+.dyneria .hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    /* pool of shade under the wordmark, which starts on a dark gradient stop */
+    radial-gradient(60% 55% at 50% 45%, color-mix(in srgb, var(--shade) 62%, transparent), transparent 70%),
+    linear-gradient(to bottom,
+      color-mix(in srgb, var(--shade) 72%, transparent) 0%,
+      color-mix(in srgb, var(--shade) 52%, transparent) 45%,
+      color-mix(in srgb, var(--shade) 78%, transparent) 100%);
+}
+.dyneria .hero > * { position: relative; z-index: 1; }
+/* The wordmark's gradient opens on --spark-1, a navy that vanishes against the
+   map's greens. A halo behind the glyphs carries the dark stops; the gradient
+   fill is clipped to the text, so this only ever shows at the letter edges. */
+.dyneria .hero__wordmark { text-shadow: 0 0 24px color-mix(in srgb, var(--shade) 85%, transparent); }
+.dyneria .hero__tagline { color: var(--text); }
+/* .hero has no inline padding — it never needed any, because Kabonk's hero holds
+   a single button and Fernweh's holds none. Dyneria's holds a .btn-row, which
+   overflows a phone viewport without it. */
+.dyneria .hero { padding-inline: var(--space-5); }
+.dyneria .hero .btn-row { justify-content: center; }
+.dyneria .feature__media img,
+.dyneria .grid a img {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
 }
 
 /* --- Lightbox ------------------------------------------------------------- */

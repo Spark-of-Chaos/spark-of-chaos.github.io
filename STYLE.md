@@ -75,7 +75,11 @@ section (home page strips):
 ```css
 .kabonk  { --game-accent: #ff00ff; --game-accent-2: #a3e0fc; --game-bg: #14030f; }
 .fernweh { --game-accent: #f0a45a; --game-accent-2: #7fb98a; --game-bg: #0b120e; }
+.dyneria { --game-accent: #ffc334; --game-accent-2: #c2d24b; --game-bg: #0d1226; }
 ```
+
+Dyneria's gold is sampled from its own Steam wordmark, the moss green from its world art
+and the navy from its store capsule background.
 
 To restyle a game, change these three declarations only — never edit the component rules
 that consume `--game-accent`/`--game-accent-2`/`--game-bg`. See recipe 5.7.
@@ -266,6 +270,23 @@ class does nothing visually). From `kabonk.html`:
 ```html
 <img class="shot" src="/assets/img/kabonk/screenshot-03.jpg" alt="A neon Kabonk! arcade level mid-play" width="1280" height="720" loading="lazy" decoding="async">
 ```
+
+### The Dyneria scope (`.dyneria .hero`, `.dyneria .feature__media img`)
+
+Dyneria has no logo asset — the only wordmark art Steam publishes is baked into a 460×215
+capsule, too small to use — so its hero is a world screenshot behind the shared
+`.hero__wordmark` text treatment. That art is bright olive-green and `--spark-gradient`
+opens on `--spark-1`, a navy that disappears against it, so the scope adds three things in
+`assets/css/site.css`: a scrim on `.dyneria .hero::before`, a `text-shadow` halo behind the
+wordmark glyphs (the gradient fill is clipped to the text, so the halo only shows at the
+letter edges), and `padding-inline` — `.hero` has none of its own, and Dyneria is the only
+page that puts a `.btn-row` inside a hero, which overflows a phone viewport without it.
+
+Its screenshots take the plain `--radius` and a `--line` hairline. **Do not use `.shot` on a
+Dyneria image** — that CRT treatment is scoped to `.kabonk` and is Kabonk!'s gimmick.
+
+If a transparent logo PNG ever turns up, add an `.hero__logo` `<img>` to the hero the way
+`kabonk.html` does and lighten the scrim; the comment above the block in `site.css` says so.
 
 ### `.lightbox` (the `[data-lightbox]` contract)
 
@@ -557,7 +578,10 @@ http.get('http://localhost:8000/kabonk.html', r => {
 ```
 
 **Every asset a page references actually exists on disk** (swap the filename to check a
-different page):
+different page). Note this only scans HTML attributes — `site.css` also references
+`/assets/img/dyneria/hero.jpg` in a `url()`, and the `.dusk` comment block names a Fernweh
+hero image that deliberately does not exist yet, so strip CSS comments before checking
+stylesheet urls or you will chase a phantom:
 
 ```bash
 node -e "
@@ -577,7 +601,7 @@ stylesheet linked, `lang` set. Add any new page's path to the `pages` array:
 ```bash
 node -e "
 const fs=require('fs');
-const pages=['index.html','kabonk.html','fernweh.html','404.html',
+const pages=['index.html','kabonk.html','fernweh.html','dyneria.html','404.html',
              'updates/index.html','updates/2026-09-06-wander-a-day.html'];
 const seenTitle=new Map(), seenDesc=new Map();
 for (const p of pages) {
