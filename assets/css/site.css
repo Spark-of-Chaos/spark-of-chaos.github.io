@@ -522,10 +522,19 @@ hr { border: 0; height: 1px; background: var(--line); }
       color-mix(in srgb, var(--shade) 78%, transparent) 100%);
 }
 .dyneria .hero > * { position: relative; z-index: 1; }
-/* The wordmark's gradient opens on --spark-1, a navy that vanishes against the
-   map's greens. A halo behind the glyphs carries the dark stops; the gradient
-   fill is clipped to the text, so this only ever shows at the letter edges. */
-.dyneria .hero__wordmark { text-shadow: 0 0 24px color-mix(in srgb, var(--shade) 85%, transparent); }
+/* --spark-gradient opens on --spark-1 and --spark-2, a navy and a dark teal that
+   read as murk over the map's greens — the "Dy" all but disappeared. Same ramp,
+   bright half only: no new colour, just a later entry point. Re-declaring
+   background-clip is required, because the `background` shorthand resets it.
+   The halo sits behind the glyphs; the fill is clipped to the text, so it only
+   ever shows at the letter edges. */
+.dyneria .hero__wordmark {
+  background: linear-gradient(135deg,
+    var(--spark-4), var(--spark-5), var(--spark-6), var(--spark-7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 24px color-mix(in srgb, var(--shade) 85%, transparent);
+}
 .dyneria .hero__tagline { color: var(--text); }
 /* .hero has no inline padding — it never needed any, because Kabonk's hero holds
    a single button and Fernweh's holds none. Dyneria's holds a .btn-row, which
