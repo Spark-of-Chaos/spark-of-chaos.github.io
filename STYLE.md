@@ -271,22 +271,34 @@ class does nothing visually). From `kabonk.html`:
 <img class="shot" src="/assets/img/kabonk/screenshot-03.jpg" alt="A neon Kabonk! arcade level mid-play" width="1280" height="720" loading="lazy" decoding="async">
 ```
 
-### The Dyneria scope (`.dyneria .hero`, `.dyneria .feature__media img`)
+### The Dyneria scope (`.dyneria .hero`, `.dyneria .hero__logo`, `.dyneria .feature__media img`)
 
-Dyneria has no logo asset — the only wordmark art Steam publishes is baked into a 460×215
-capsule, too small to use — so its hero is a world screenshot behind the shared
-`.hero__wordmark` text treatment. That art is bright olive-green and `--spark-gradient`
-opens on `--spark-1`, a navy that disappears against it, so the scope adds three things in
-`assets/css/site.css`: a scrim on `.dyneria .hero::before`, a `text-shadow` halo behind the
-wordmark glyphs (the gradient fill is clipped to the text, so the halo only shows at the
-letter edges), and `padding-inline` — `.hero` has none of its own, and Dyneria is the only
-page that puts a `.btn-row` inside a hero, which overflows a phone viewport without it.
+Dyneria's hero is the **Steam capsule** — `assets/img/dyneria/capsule.jpg`, which carries the
+game's own gold wordmark — as an `.hero__logo`, over a world screenshot. The `<h1>` is
+`visually-hidden` next to it, exactly as `kabonk.html` does with its logo.
 
-Its screenshots take the plain `--radius` and a `--line` hairline. **Do not use `.shot` on a
-Dyneria image** — that CRT treatment is scoped to `.kabonk` and is Kabonk!'s gimmick.
+Two things about that capsule are worth knowing before you touch it:
 
-If a transparent logo PNG ever turns up, add an `.hero__logo` `<img>` to the hero the way
-`kabonk.html` does and lighten the scrim; the comment above the block in `site.css` says so.
+- **Steam publishes it at 460×215 and nothing larger.** `capsule_616x353.jpg`,
+  `library_hero.jpg` and `logo.png` all 404 for this app. The committed file is that capsule
+  upscaled 2.6× with Lanczos to 1200×561; it holds up because the source art is crisp, and
+  the ceiling is the source, not the resampler. Do not upscale it further.
+- **`.hero__logo` is `min(38vw, 15rem)` by default**, which is sized for a logo, not a
+  capsule. `dyneria.html` overrides it inline to `min(84vw, 34rem)` — that caps the render at
+  544px, so the 1200px file still lands at 2.2× density on a desktop and 3.7× on a phone.
+
+The scope adds three rules in `assets/css/site.css`. A scrim on `.dyneria .hero::before`, to
+push the olive-green screenshot back far enough that the capsule reads as the subject. The
+`--radius`, `--line` hairline and `--shadow-lg` that lift the capsule off that backdrop. And
+`padding-inline` — `.hero` has none of its own, and Dyneria is the only page that puts a
+`.btn-row` inside a hero, which overflows a phone viewport without it.
+
+Screenshots take the same plain `--radius` and hairline. **Do not use `.shot` on a Dyneria
+image** — that CRT treatment is scoped to `.kabonk` and is Kabonk!'s gimmick.
+
+The same capsule file is the page's `og:image`, so a link preview shows the branded art
+rather than a screenshot. It is the one OG image not under `assets/img/brand/`: it would be
+a byte-for-byte copy of the capsule, and one file cannot drift from itself.
 
 ### `.lightbox` (the `[data-lightbox]` contract)
 

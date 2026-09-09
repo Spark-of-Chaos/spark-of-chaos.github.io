@@ -498,13 +498,12 @@ hr { border: 0; height: 1px; background: var(--line); }
 }
 
 /* --- Dyneria world art (Dyneria scope only) -------------------------------
-   Dyneria has no logo asset, so the hero is a world screenshot behind the
-   gradient wordmark. The map art is bright olive-green, which the wordmark
-   cannot be read against — hence the scrim, mixed from --shade so it tunes by
-   ratio rather than by editing a flat colour. If a transparent logo PNG turns
-   up later, add an .hero__logo <img> to the hero and lighten the scrim.
-   Screenshots take the standard image radius: Dyneria gets no CRT treatment,
-   that gimmick belongs to Kabonk!.
+   The hero is the Steam capsule — which carries the game's own gold wordmark —
+   sitting on a world screenshot. The screenshot is bright olive-green, so the
+   scrim pushes it back far enough for the capsule to read as the subject; it is
+   mixed from --shade so it tunes by ratio rather than by editing a flat colour.
+   Screenshots and the capsule take the standard image radius: Dyneria gets no
+   CRT treatment, that gimmick belongs to Kabonk!.
    -------------------------------------------------------------------------- */
 .dyneria .hero { background: url('/assets/img/dyneria/hero.jpg') center/cover; }
 .dyneria .hero::before {
@@ -522,30 +521,19 @@ hr { border: 0; height: 1px; background: var(--line); }
       color-mix(in srgb, var(--shade) 78%, transparent) 100%);
 }
 .dyneria .hero > * { position: relative; z-index: 1; }
-/* --spark-gradient opens on --spark-1 and --spark-2, a navy and a dark teal that
-   read as murk over the map's greens — the "Dy" all but disappeared. Same ramp,
-   bright half only: no new colour, just a later entry point. Re-declaring
-   background-clip is required, because the `background` shorthand resets it.
-   The halo sits behind the glyphs; the fill is clipped to the text, so it only
-   ever shows at the letter edges. */
-.dyneria .hero__wordmark {
-  background: linear-gradient(135deg,
-    var(--spark-4), var(--spark-5), var(--spark-6), var(--spark-7));
-  -webkit-background-clip: text;
-  background-clip: text;
-  text-shadow: 0 0 24px color-mix(in srgb, var(--shade) 85%, transparent);
-}
 .dyneria .hero__tagline { color: var(--text); }
 /* .hero has no inline padding — it never needed any, because Kabonk's hero holds
    a single button and Fernweh's holds none. Dyneria's holds a .btn-row, which
    overflows a phone viewport without it. */
 .dyneria .hero { padding-inline: var(--space-5); }
 .dyneria .hero .btn-row { justify-content: center; }
+.dyneria .hero__logo,
 .dyneria .feature__media img,
 .dyneria .grid a img {
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
+.dyneria .hero__logo { box-shadow: var(--shadow-lg); }
 
 /* --- Lightbox ------------------------------------------------------------- */
 .lightbox {
