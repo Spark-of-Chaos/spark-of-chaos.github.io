@@ -57,12 +57,14 @@ better written in the studio's own voice later.
 
 Three things the existing scopes did not need, all confined to `.dyneria`:
 
-1. **A hero scrim.** `.dyneria .hero::before`, mixed from `--shade` so it tunes by ratio
-   rather than by editing a flat colour. It sits between the plate and the logo, tuned light
-   on purpose: enough to carry the tagline and the ghost button, not enough to mute the art.
-2. **A `drop-shadow()` on the logo.** `.dyneria .hero__logo` is a transparent PNG, so a
-   border, radius or `box-shadow` would draw a box around empty space; the filter follows
-   the glyph edges instead. The rectangular screenshots keep the border and radius.
+1. **A filled chip.** The art is shown with no scrim, and the copy over it holds up
+   unaided — 5.9:1 for the tagline, 4.9:1 for the ghost button, 9.3:1 for the logo against
+   its own backing plate. Only the chip fails: gold text on sunlit farmland, nearly the same
+   hue, at 2.7:1. Filling the pill in `.dyneria .hero .chip` takes it to 8.6:1 and covers
+   nothing, where a scrim would have covered everything. Chips elsewhere keep their tint.
+2. **Nothing on the logo.** No border, radius, shadow or filter — a border or radius would
+   box empty space, and the artwork's own dark plate behind the letters is the shadow. The
+   rectangular screenshots keep the border and radius.
 3. **`padding-inline` on the hero.** `.hero` has none of its own — Kabonk's hero holds one
    button and Fernweh's holds none. Dyneria is the first to put a `.btn-row` in a hero, and
    without inline padding it overflows a 390px viewport.
@@ -70,11 +72,12 @@ Three things the existing scopes did not need, all confined to `.dyneria`:
 Screenshots take the plain `--radius` with a `--line` hairline. `.shot` is deliberately not
 used: that CRT treatment is scoped to `.kabonk` and belongs to Kabonk!.
 
-The hero went through two earlier shapes, and both left the scope cleaner on the way out.
-First the shared `.hero__wordmark` gradient text, which needed overrides because
+The hero went through three shapes, and each one left the scope smaller. First the shared
+`.hero__wordmark` gradient text, which needed a re-sliced gradient and a halo because
 `--spark-gradient` opens on `--spark-1`, a navy that vanished against the map greens. Then
-the Steam capsule as a flat rectangle, which needed a border, radius and panel shadow. The
-real logo needs none of it.
+the Steam capsule as a flat rectangle, which needed a border, radius and panel shadow. Then
+the real logo over the plate, still under a scrim and a drop-shadow. The end state is both
+layers shown as-is, and the only rule left is the one measurement demanded: the chip.
 
 **The home strip has no media column.** Kabonk's holds a logo and Fernweh's a text wordmark
 over a flat background. Dyneria's tried a text wordmark, which sat unreadably on the world

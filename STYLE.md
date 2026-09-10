@@ -288,9 +288,10 @@ crop away with it. The `<h1>` beside the logo is `visually-hidden`, exactly as
 
 Three things to know before you touch these:
 
-- **The logo takes no border, radius or `box-shadow`.** It is a transparent PNG, so all of
-  those would draw a box around empty space. It gets a `drop-shadow()` filter instead, which
-  follows the glyph edges. The rectangular screenshots keep the border and radius.
+- **The logo is shown bare** — no border, radius, shadow or filter. It is a transparent PNG,
+  so a border or radius would draw a box around empty space, and it needs no shadow because
+  the artwork has its own dark backing plate behind the letters, which measures 9.3:1 against
+  the art. The rectangular screenshots keep the border and radius.
 - **`logo.png` is a quantised 8-bit PNG, and that is deliberate.** Full RGBA measured
   317 KiB against 59 KiB, and at the 544px it renders at the two are indistinguishable —
   Floyd–Steinberg dithering removes the banding that plain quantising leaves in the gold. If
@@ -299,8 +300,13 @@ Three things to know before you touch these:
   overrides it inline to `min(84vw, 34rem)`, capping the render at 544px so the 1046px file
   still lands at ~1.9× density on a desktop and ~3.2× on a phone.
 
-The scrim on `.dyneria .hero::before` sits between the two layers and is tuned light on
-purpose — enough to carry the tagline and the ghost button, not enough to mute the art.
+**There is no scrim.** The plate is shown as-is, and the copy over it holds up unaided —
+measured on the rendered page, the tagline is 5.9:1 and the ghost button 4.9:1. The one
+exception is the chip: its gold text lands on the sunlit farmland, nearly the same hue, at
+2.7:1. That is fixed by filling the pill itself in the scope (`.dyneria .hero .chip`, taking
+it to 8.6:1) rather than by darkening the art — a pill covers nothing, a scrim covers
+everything. Chips elsewhere on the site keep their translucent tint.
+
 `padding-inline` on the hero is also scope-local: `.hero` has none of its own, and Dyneria is
 the only page that puts a `.btn-row` inside a hero, which overflows a phone viewport without
 it.

@@ -502,44 +502,30 @@ hr { border: 0; height: 1px; background: var(--line); }
    background, and the transparent gold logo on top as an .hero__logo. Keeping
    them separate is why the logo lands in the sky above the volcano at any
    viewport — `cover` crops the plate's sides, not its middle.
-   The scrim between the two is mixed from --shade, so it tunes by ratio rather
-   than by editing a flat colour. It is deliberately light: enough to hold the
-   tagline and the ghost button, not enough to mute the art.
+   Both layers are shown as-is. There is no scrim over the plate and no shadow
+   or border on the logo: the art carries the hero by itself.
    Screenshots take the standard image radius, the logo takes none: Dyneria gets
    no CRT treatment either, that gimmick belongs to Kabonk!.
    -------------------------------------------------------------------------- */
 .dyneria .hero { background: url('/assets/img/dyneria/hero.jpg') center/cover; }
-.dyneria .hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    /* pool of shade behind the logo and the copy under it */
-    radial-gradient(60% 55% at 50% 45%, color-mix(in srgb, var(--shade) 45%, transparent), transparent 70%),
-    linear-gradient(to bottom,
-      color-mix(in srgb, var(--shade) 58%, transparent) 0%,
-      color-mix(in srgb, var(--shade) 34%, transparent) 45%,
-      color-mix(in srgb, var(--shade) 66%, transparent) 100%);
-}
-.dyneria .hero > * { position: relative; z-index: 1; }
 .dyneria .hero__tagline { color: var(--text); }
+/* The chip is the one thing the bare art defeats: its gold text lands on the
+   sunlit farmland, which is nearly the same hue, measuring 2.7:1. Filling the
+   pill itself — rather than scrimming the art — takes it back over 8:1 and
+   covers nothing. The tagline and ghost button clear AA on the art unaided. */
+.dyneria .hero .chip { background: color-mix(in srgb, var(--shade) 62%, transparent); }
 /* .hero has no inline padding — it never needed any, because Kabonk's hero holds
    a single button and Fernweh's holds none. Dyneria's holds a .btn-row, which
    overflows a phone viewport without it. */
 .dyneria .hero { padding-inline: var(--space-5); }
 .dyneria .hero .btn-row { justify-content: center; }
+/* Rectangular screenshots only. The logo is a transparent PNG and is shown bare
+   — a border or radius would draw a box around empty space, and it carries its
+   own dark backing plate in the artwork. */
 .dyneria .feature__media img,
 .dyneria .grid a img {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-}
-/* The logo is a transparent PNG, so it takes no border, radius or panel shadow —
-   those would draw a box around empty space. A drop-shadow filter follows the
-   glyph edges instead, which is what lifts it off the sky behind it. */
-.dyneria .hero__logo {
-  filter: drop-shadow(0 4px 16px color-mix(in srgb, var(--shade) 70%, transparent));
 }
 
 /* --- Lightbox ------------------------------------------------------------- */
