@@ -273,32 +273,45 @@ class does nothing visually). From `kabonk.html`:
 
 ### The Dyneria scope (`.dyneria .hero`, `.dyneria .hero__logo`, `.dyneria .feature__media img`)
 
-Dyneria's hero is the **Steam capsule** — `assets/img/dyneria/capsule.jpg`, which carries the
-game's own gold wordmark — as an `.hero__logo`, over a world screenshot. The `<h1>` is
-`visually-hidden` next to it, exactly as `kabonk.html` does with its logo.
+Dyneria's hero is the game's own key art, kept in **two layers** rather than one flat image:
 
-Two things about that capsule are worth knowing before you touch it:
+| Layer | File | Why |
+|---|---|---|
+| Background | `assets/img/dyneria/hero.jpg`, 1920×620 | The island plate, no lettering |
+| Foreground | `assets/img/dyneria/logo.png`, 1046×324 | The transparent gold logo, as an `.hero__logo` |
 
-- **Steam publishes it at 460×215 and nothing larger.** `capsule_616x353.jpg`,
-  `library_hero.jpg` and `logo.png` all 404 for this app. The committed file is that capsule
-  upscaled 2.6× with Lanczos to 1200×561; it holds up because the source art is crisp, and
-  the ceiling is the source, not the resampler. Do not upscale it further.
-- **`.hero__logo` is `min(38vw, 15rem)` by default**, which is sized for a logo, not a
-  capsule. `dyneria.html` overrides it inline to `min(84vw, 34rem)` — that caps the render at
-  544px, so the 1200px file still lands at 2.2× density on a desktop and 3.7× on a phone.
+Layering them is what makes the logo land in the sky above the volcano at *any* viewport:
+`background-size: cover` crops the plate's sides, never its middle, so the volcano stays
+centred and the logo stays over sky. A single pre-composed image would have the lettering
+crop away with it. The `<h1>` beside the logo is `visually-hidden`, exactly as
+`kabonk.html` does with its logo.
 
-The scope adds three rules in `assets/css/site.css`. A scrim on `.dyneria .hero::before`, to
-push the olive-green screenshot back far enough that the capsule reads as the subject. The
-`--radius`, `--line` hairline and `--shadow-lg` that lift the capsule off that backdrop. And
-`padding-inline` — `.hero` has none of its own, and Dyneria is the only page that puts a
-`.btn-row` inside a hero, which overflows a phone viewport without it.
+Three things to know before you touch these:
 
-Screenshots take the same plain `--radius` and hairline. **Do not use `.shot` on a Dyneria
-image** — that CRT treatment is scoped to `.kabonk` and is Kabonk!'s gimmick.
+- **The logo takes no border, radius or `box-shadow`.** It is a transparent PNG, so all of
+  those would draw a box around empty space. It gets a `drop-shadow()` filter instead, which
+  follows the glyph edges. The rectangular screenshots keep the border and radius.
+- **`logo.png` is a quantised 8-bit PNG, and that is deliberate.** Full RGBA measured
+  317 KiB against 59 KiB, and at the 544px it renders at the two are indistinguishable —
+  Floyd–Steinberg dithering removes the banding that plain quantising leaves in the gold. If
+  you ever re-export it, dither, or the gradients will posterise.
+- **`.hero__logo` is `min(38vw, 15rem)` by default**, sized for a small logo. `dyneria.html`
+  overrides it inline to `min(84vw, 34rem)`, capping the render at 544px so the 1046px file
+  still lands at ~1.9× density on a desktop and ~3.2× on a phone.
 
-The same capsule file is the page's `og:image`, so a link preview shows the branded art
-rather than a screenshot. It is the one OG image not under `assets/img/brand/`: it would be
-a byte-for-byte copy of the capsule, and one file cannot drift from itself.
+The scrim on `.dyneria .hero::before` sits between the two layers and is tuned light on
+purpose — enough to carry the tagline and the ghost button, not enough to mute the art.
+`padding-inline` on the hero is also scope-local: `.hero` has none of its own, and Dyneria is
+the only page that puts a `.btn-row` inside a hero, which overflows a phone viewport without
+it.
+
+**Do not use `.shot` on a Dyneria image** — that CRT treatment is scoped to `.kabonk` and is
+Kabonk!'s gimmick.
+
+The page's `og:image` is a third file, `key-art.jpg` (1200×514) — the pre-composed art, logo
+included, because a transparent PNG makes a poor link preview and a bare plate has no
+branding. It is the one OG image not under `assets/img/brand/`, which keeps all three Dyneria
+art files in one directory.
 
 ### `.lightbox` (the `[data-lightbox]` contract)
 

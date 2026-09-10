@@ -498,12 +498,15 @@ hr { border: 0; height: 1px; background: var(--line); }
 }
 
 /* --- Dyneria world art (Dyneria scope only) -------------------------------
-   The hero is the Steam capsule — which carries the game's own gold wordmark —
-   sitting on a world screenshot. The screenshot is bright olive-green, so the
-   scrim pushes it back far enough for the capsule to read as the subject; it is
-   mixed from --shade so it tunes by ratio rather than by editing a flat colour.
-   Screenshots and the capsule take the standard image radius: Dyneria gets no
-   CRT treatment, that gimmick belongs to Kabonk!.
+   The hero is the game's key art in two layers: the island plate as the
+   background, and the transparent gold logo on top as an .hero__logo. Keeping
+   them separate is why the logo lands in the sky above the volcano at any
+   viewport — `cover` crops the plate's sides, not its middle.
+   The scrim between the two is mixed from --shade, so it tunes by ratio rather
+   than by editing a flat colour. It is deliberately light: enough to hold the
+   tagline and the ghost button, not enough to mute the art.
+   Screenshots take the standard image radius, the logo takes none: Dyneria gets
+   no CRT treatment either, that gimmick belongs to Kabonk!.
    -------------------------------------------------------------------------- */
 .dyneria .hero { background: url('/assets/img/dyneria/hero.jpg') center/cover; }
 .dyneria .hero::before {
@@ -513,12 +516,12 @@ hr { border: 0; height: 1px; background: var(--line); }
   z-index: 0;
   pointer-events: none;
   background:
-    /* pool of shade under the wordmark, which starts on a dark gradient stop */
-    radial-gradient(60% 55% at 50% 45%, color-mix(in srgb, var(--shade) 62%, transparent), transparent 70%),
+    /* pool of shade behind the logo and the copy under it */
+    radial-gradient(60% 55% at 50% 45%, color-mix(in srgb, var(--shade) 45%, transparent), transparent 70%),
     linear-gradient(to bottom,
-      color-mix(in srgb, var(--shade) 72%, transparent) 0%,
-      color-mix(in srgb, var(--shade) 52%, transparent) 45%,
-      color-mix(in srgb, var(--shade) 78%, transparent) 100%);
+      color-mix(in srgb, var(--shade) 58%, transparent) 0%,
+      color-mix(in srgb, var(--shade) 34%, transparent) 45%,
+      color-mix(in srgb, var(--shade) 66%, transparent) 100%);
 }
 .dyneria .hero > * { position: relative; z-index: 1; }
 .dyneria .hero__tagline { color: var(--text); }
@@ -527,13 +530,17 @@ hr { border: 0; height: 1px; background: var(--line); }
    overflows a phone viewport without it. */
 .dyneria .hero { padding-inline: var(--space-5); }
 .dyneria .hero .btn-row { justify-content: center; }
-.dyneria .hero__logo,
 .dyneria .feature__media img,
 .dyneria .grid a img {
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
-.dyneria .hero__logo { box-shadow: var(--shadow-lg); }
+/* The logo is a transparent PNG, so it takes no border, radius or panel shadow —
+   those would draw a box around empty space. A drop-shadow filter follows the
+   glyph edges instead, which is what lifts it off the sky behind it. */
+.dyneria .hero__logo {
+  filter: drop-shadow(0 4px 16px color-mix(in srgb, var(--shade) 70%, transparent));
+}
 
 /* --- Lightbox ------------------------------------------------------------- */
 .lightbox {
