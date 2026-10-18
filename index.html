@@ -69,11 +69,11 @@
     <h2 class="visually-hidden" id="games">Our games</h2>
 
     <!-- Newest announcement leads. -->
-    <section class="game-strip dyneria" style="background-image: url('/assets/img/dyneria/hero.jpg')" aria-labelledby="game-dyneria">
+    <section class="game-strip game-strip--flip dyneria" style="background-image: url('/assets/img/dyneria/hero.jpg')" aria-labelledby="game-dyneria">
       <div class="container game-strip__inner">
-        <!-- No media column: Dyneria has no logo asset, and a text wordmark here
-             would sit unreadably on the world art and only repeat the title. The
-             art is the background instead, so the body takes the first column. -->
+        <div class="game-strip__media">
+          <img class="game-strip__logo" src="/assets/img/dyneria/logo.png" alt="Dyneria" width="1046" height="324" loading="lazy" decoding="async">
+        </div>
         <div class="game-strip__body">
           <span class="chip">Coming soon</span>
           <h3 class="game-strip__title" id="game-dyneria">Dyneria</h3>
