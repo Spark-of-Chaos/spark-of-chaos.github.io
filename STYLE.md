@@ -316,8 +316,10 @@ Kabonk!'s gimmick.
 
 The page's `og:image` is a third file, `key-art.jpg` (1200×514) — the pre-composed art, logo
 included, because a transparent PNG makes a poor link preview and a bare plate has no
-branding. It is the one OG image not under `assets/img/brand/`, which keeps all three Dyneria
-art files in one directory.
+branding. It lives beside the other Dyneria art rather than under `assets/img/brand/`, and it is
+also the **studio default** OG image: the home page and the devlog index use it, and so does any
+post without artwork of its own. Fernweh's page and Fernweh posts use `fernweh/key-art.jpg`
+(1200×630, a crop of the hero art); Kabonk! keeps `brand/og-kabonk.png`.
 
 ### `.lightbox` (the `[data-lightbox]` contract)
 
@@ -479,8 +481,8 @@ Five files, in order. Task 9 proved this path end to end with the seed post, sin
    `updates/<YYYY-MM-DD>-<kebab-title>.html`. The template deliberately ships with placeholder
    text marking every field that must change — the four capital letters spelling "to-do"
    followed by a colon, in the `<title>`, the description, the canonical URL, the OG tags
-   (including `og:image` — point it at an image for the post, or leave `og-kabonk.png` as the
-   studio default when the post has no artwork of its own), the `<body>` opening comment
+   (including `og:image` and its width, height, type and alt — point it at an image for the post,
+   or use `dyneria/key-art.jpg`, the studio default, when the post has no artwork of its own), the `<body>` opening comment
    (palette scope), the chip, the `<h1>`, the `<time>` element (twice — `datetime` and its
    visible text), and the body copy. **Every one of those placeholders must be replaced** before
    the post is real; search the finished file for that four-letter marker to check none remain.
@@ -535,19 +537,15 @@ Five files, in order. Task 9 proved this path end to end with the seed post, sin
 
 ### 5.6 Swap in Fernweh artwork
 
-Fernweh has no real hero art yet — `.dusk` in `assets/css/site.css` is a CSS-only scene standing
-in for it (campfire glow, treeline, dusk sky gradient, film-grain noise). The CSS comment above
-`.dusk` documents the exact replacement:
+Fernweh's hero is `assets/img/fernweh/hero.jpg` (1920×540, the four-seasons campsite), applied
+by the `.fernweh .dusk` override rule after `.dusk` in `assets/css/site.css`. The art is bright
+daylight, so that rule layers a `--game-bg` scrim over the image. The same image is the
+background of the Fernweh strip on the home page (inline `background-image`, like Kabonk and
+Dyneria; `.game-strip::before` supplies that scrim).
 
-```css
-/* Stands in for artwork that does not exist yet (spec §11). To replace with a
-   real image later, override exactly one declaration:
-     .fernweh .dusk { background: url('/assets/img/fernweh/hero.jpg') center/cover; } */
-```
-
-Add the image to `assets/img/fernweh/`, then add that one override rule after `.dusk` in
-`site.css`. Don't delete `.dusk`'s existing rules — the override rule wins by cascade order and
-specificity, and keeping the original means reverting is a one-line removal.
+To swap in new artwork, export it at 1920px wide to `assets/img/fernweh/hero.jpg` — nothing else
+changes. `.dusk`'s own rules are the old CSS-only scene (campfire glow, treeline, dusk sky) and
+are kept on purpose: deleting the `.fernweh .dusk` override brings it back.
 
 ### 5.7 Change a colour or a font
 
@@ -610,9 +608,8 @@ http.get('http://localhost:8000/kabonk.html', r => {
 
 **Every asset a page references actually exists on disk** (swap the filename to check a
 different page). Note this only scans HTML attributes — `site.css` also references
-`/assets/img/dyneria/hero.jpg` in a `url()`, and the `.dusk` comment block names a Fernweh
-hero image that deliberately does not exist yet, so strip CSS comments before checking
-stylesheet urls or you will chase a phantom:
+`/assets/img/dyneria/hero.jpg` and `/assets/img/fernweh/hero.jpg` in `url()`s, so check
+stylesheet urls separately:
 
 ```bash
 node -e "

@@ -62,8 +62,8 @@ There is nothing to build.
 ## Design decisions worth knowing
 
 The full rationale is in `docs/superpowers/specs/2026-09-06-spark-of-chaos-site-design.md`.
-Fernweh has no artwork yet, so its hero is a CSS scene (`.dusk`) built to be swapped for a
-real image in one declaration. The Matter.js brick-breaker footer from the old site was
+Fernweh's hero began as a CSS scene (`.dusk`); the real artwork (`assets/img/fernweh/hero.jpg`)
+now overrides it with one `.fernweh .dusk` rule, and the scene's rules are kept for reverting. The Matter.js brick-breaker footer from the old site was
 dropped deliberately — it was the only CDN dependency.
 
 ## Repo hygiene

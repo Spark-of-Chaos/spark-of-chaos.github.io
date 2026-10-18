@@ -602,9 +602,9 @@ hr { border: 0; height: 1px; background: var(--line); }
 .social-row svg { width: 32px; height: 32px; fill: currentColor; }
 
 /* --- Fernweh dusk scene ---------------------------------------------------
-   Stands in for artwork that does not exist yet (spec §11). To replace with a
-   real image later, override exactly one declaration:
-     .fernweh .dusk { background: url('/assets/img/fernweh/hero.jpg') center/cover; }
+   Built to stand in for artwork that did not exist yet (spec §11). The real
+   hero image now overrides it below with `.fernweh .dusk`; these rules stay so
+   that reverting to the CSS scene is a one-rule removal.
    -------------------------------------------------------------------------- */
 .dusk {
   position: absolute;
@@ -634,6 +634,18 @@ hr { border: 0; height: 1px; background: var(--line); }
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+/* The real artwork: one campsite through the four seasons. The art is bright
+   daylight, so a scrim in the game's own background colour sits over it to
+   keep the wordmark, tagline and definition readable. */
+.fernweh .dusk {
+  background:
+    linear-gradient(to bottom,
+      color-mix(in srgb, var(--game-bg) 72%, transparent),
+      color-mix(in srgb, var(--game-bg) 58%, transparent) 50%,
+      color-mix(in srgb, var(--game-bg) 80%, transparent)),
+    url('/assets/img/fernweh/hero.jpg') center/cover;
+}
+.fernweh .dusk::after { content: none; }
 .definition {
   font-family: var(--font-body);
   color: var(--text-dim);
