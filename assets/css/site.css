@@ -416,15 +416,50 @@ hr { border: 0; height: 1px; background: var(--line); }
   overflow: hidden;
 }
 .hero > * { position: relative; z-index: 1; }
+/* Blob centres are registered properties so the gradients can be animated.
+   Browsers without @property simply show the resting positions. */
+@property --bloom-1x { syntax: '<percentage>'; inherits: false; initial-value: 50%; }
+@property --bloom-1y { syntax: '<percentage>'; inherits: false; initial-value: 42%; }
+@property --bloom-2x { syntax: '<percentage>'; inherits: false; initial-value: 38%; }
+@property --bloom-2y { syntax: '<percentage>'; inherits: false; initial-value: 55%; }
+@property --bloom-3x { syntax: '<percentage>'; inherits: false; initial-value: 62%; }
+@property --bloom-3y { syntax: '<percentage>'; inherits: false; initial-value: 34%; }
 .hero__bloom {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(44rem 30rem at 50% 42%, color-mix(in srgb, var(--spark-5) 26%, transparent), transparent 70%),
-    radial-gradient(26rem 20rem at 38% 55%, color-mix(in srgb, var(--spark-4) 18%, transparent), transparent 72%),
-    radial-gradient(24rem 18rem at 62% 34%, color-mix(in srgb, var(--spark-6) 20%, transparent), transparent 72%);
+    radial-gradient(44rem 30rem at var(--bloom-1x) var(--bloom-1y), color-mix(in srgb, var(--spark-5) 26%, transparent), transparent 70%),
+    radial-gradient(26rem 20rem at var(--bloom-2x) var(--bloom-2y), color-mix(in srgb, var(--spark-4) 18%, transparent), transparent 72%),
+    radial-gradient(24rem 18rem at var(--bloom-3x) var(--bloom-3y), color-mix(in srgb, var(--spark-6) 20%, transparent), transparent 72%);
+}
+/* Slow drift on co-prime durations, so the blobs pass through each other
+   without ever repeating in an obvious loop. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__bloom {
+    animation:
+      bloom-1 47s ease-in-out infinite alternate,
+      bloom-2 31s ease-in-out infinite alternate,
+      bloom-3 37s ease-in-out infinite alternate;
+  }
+}
+@keyframes bloom-1 {
+  0%   { --bloom-1x: 50%; --bloom-1y: 42%; }
+  50%  { --bloom-1x: 44%; --bloom-1y: 50%; }
+  100% { --bloom-1x: 56%; --bloom-1y: 38%; }
+}
+@keyframes bloom-2 {
+  0%   { --bloom-2x: 38%; --bloom-2y: 55%; }
+  35%  { --bloom-2x: 52%; --bloom-2y: 44%; }
+  70%  { --bloom-2x: 64%; --bloom-2y: 52%; }
+  100% { --bloom-2x: 46%; --bloom-2y: 36%; }
+}
+@keyframes bloom-3 {
+  0%   { --bloom-3x: 62%; --bloom-3y: 34%; }
+  40%  { --bloom-3x: 48%; --bloom-3y: 48%; }
+  75%  { --bloom-3x: 34%; --bloom-3y: 40%; }
+  100% { --bloom-3x: 56%; --bloom-3y: 58%; }
 }
 /* Fine noise so the gradients cannot band on wide gamut displays. */
 .hero__bloom::after {
